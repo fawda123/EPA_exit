@@ -1,0 +1,134 @@
+\documentclass[serif]{beamer}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usetheme{Boadilla}
+\usepackage{graphicx}
+\usepackage[final]{animate}
+\usepackage{breqn}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes,arrows,positioning,shadows}
+\usepackage{subfig}
+\usepackage{pgf}
+
+% change format of enumerated lists
+\setbeamertemplate{enumerate items}[default]
+
+\setbeamertemplate{navigation symbols}{}
+
+% custom colors
+\definecolor{mypal1}{HTML}{F0F9E8}\definecolor{mypal2}{HTML}{BAE4BC}\definecolor{mypal3}{HTML}{7BCCC4}\definecolor{mypal4}{HTML}{43A2CA}\definecolor{mypal5}{HTML}{0868AC}
+
+\tikzstyle{decision} = [diamond, draw, text width=6em, text badly centered, inner sep = 2pt, top color=white, bottom color=mypal3, drop shadow]
+\tikzstyle{block} = [rectangle, draw, text width=10em, text centered, rounded corners, minimum height=3em, minimum width=8em, top color = white, bottom color=mypal4,  drop shadow]
+\tikzstyle{declare} = [rectangle, draw, text width=10em, text centered, minimum height=3em, minimum width=8em, top color = white, bottom color=mypal5,  drop shadow]
+
+% knitr setup
+
+
+% dependent data
+
+
+% get online bib file
+
+
+% my custom ggplot theme
+
+
+% figure used on title page
+
+
+\setbeamercolor{title}{fg=mypal5} % main title
+\setbeamercolor{frametitle}{fg=mypal4, bg=mypal2} % frame titles
+\setbeamercolor{structure}{fg=mypal4} % bottom banner
+\setbeamercolor{normal text}{fg=mypal5}
+\usebackgroundtemplate{\includegraphics[height=\paperheight,width=\paperwidth]{fig/back_tmp.pdf}}
+
+% macros
+\newcommand{\emtxt}[1]{\textbf{\textit{#1}}}
+\newcommand{\ShowSexpr}[1]{\texttt{{\char`\\}Sexpr\{#1\}}}
+\newcommand{\Bigtxt}[1]{\textbf{\textit{#1}}}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+\title[Memoirs of a GED post-doc]{\textbf{Nutrients, estuaries, and coffee: Memoirs of a GED post-doc}}
+\author[M. Beck]{Marcus W. Beck, Ph.D.}
+
+\institute[USEPA]{USEPA National Health and Environmental Effects Research Laboratory, Gulf Ecology Division, \href{mailto:beck.marcus@epa.gov}{beck.marcus@epa.gov}, Phone: 8509342480}
+
+\date{August 28, 2017}
+
+\titlegraphic{\includegraphics[width=0.95\linewidth]{fig/title_plo.pdf}}
+
+%%%%%%
+\begin{frame}[shrink]
+\titlepage
+\end{frame}
+
+\section{Background}
+
+%%%%%%
+\begin{frame}{}{}
+
+\end{frame}
+
+%%%%%%
+\section{References}
+\begin{frame}[allowframebreaks,t]{\textbf{References}}
+\tiny
+\setbeamertemplate{bibliography item}{}
+\bibliographystyle{apalike_mine}
+\bibliography{refs}
+\end{frame}
+
+\end{document}

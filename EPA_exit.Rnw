@@ -1,0 +1,195 @@
+\documentclass[serif]{beamer}
+\usetheme{Boadilla}
+\usepackage{graphicx}
+\usepackage[final]{animate}
+\usepackage{breqn}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes,arrows,positioning,shadows}
+\usepackage{subfig}
+\usepackage{pgf}
+
+% change format of enumerated lists
+\setbeamertemplate{enumerate items}[default]
+
+\setbeamertemplate{navigation symbols}{}
+
+% custom colors
+<<mypal, echo = F, results = 'asis', cache = T>>=
+pal <- function(x) RColorBrewer::brewer.pal(x, 'GnBu')
+num_col <- 5
+
+for(i in 1:num_col){
+ 
+  col.nm <- paste0('mypal',i)
+  hexa <- paste0(gsub('#', '', pal(5)[i]))
+  cat(paste0('\\definecolor{', col.nm,'}{HTML}{',hexa,'}'))
+  
+}
+
+bg_col <- pal(num_col)[1]
+
+pdf('fig/back_tmp.pdf',bg = bg_col)
+frame()
+invisible(dev.off())
+@
+
+\tikzstyle{decision} = [diamond, draw, text width=6em, text badly centered, inner sep = 2pt, top color=white, bottom color=mypal3, drop shadow]
+\tikzstyle{block} = [rectangle, draw, text width=10em, text centered, rounded corners, minimum height=3em, minimum width=8em, top color = white, bottom color=mypal4,  drop shadow]
+\tikzstyle{declare} = [rectangle, draw, text width=10em, text centered, minimum height=3em, minimum width=8em, top color = white, bottom color=mypal5,  drop shadow]
+
+% knitr setup
+<<setup, include = F, cache = F>>=
+# set global chunk options
+library(knitr)
+opts_chunk$set(fig.path='fig/', fig.align='center', fig.show='hold',message=F,echo=F,results='asis',dev='pdf',dev.args=list(family='serif'),fig.pos='!ht',warning=F)
+options(replace.assign=T,width=90,digits=1)
+@
+
+% dependent data
+<<dep_dat, include = F, cache = F>>=
+# source('R/funcs.R')
+library(ggplot2)
+library(reshape2)
+library(scales)
+library(wesanderson)
+library(maptools)
+library(gridExtra)
+library(maptools)
+library(raster)
+library(Hmisc)
+library(car)
+library(RColorBrewer)
+library(SWMPr)
+library(WRTDStidal)
+library(tidyverse)
+@
+
+% get online bib file
+<<echo = FALSE, cache = FALSE>>=
+refs <- httr::GET('https://raw.githubusercontent.com/fawda123/refs/master/refs.bib')
+refs <- rawToChar(refs$content)
+writeLines(refs, con = file('refs.bib'))
+@
+
+% my custom ggplot theme
+<<my_ggplot, echo = F, results = 'hide' , message = F>>=
+theme_mine <- function (base_size = 12, base_family = "") {
+  theme_bw(base_size = base_size, base_family = base_family) %+replace% 
+  theme(
+    plot.background = element_rect(fill='transparent', 
+      colour = NA),
+    panel.background = element_rect(fill='transparent', 
+      colour = NA),
+    legend.background = element_rect(fill='transparent', 
+      colour = NA),
+    strip.background = element_rect(fill = 
+        alpha(pal(5)[5],0.5)),
+    legend.key = element_rect(fill = 'transparent', 
+      colour = NA)
+    )   
+}
+
+# set as default
+theme_set(theme_mine())
+@
+
+% figure used on title page
+<<title_fig, echo = F, results = 'hide', message = F, eval = T>>=
+load('data/salwt_grd.RData')
+load('data/epc_est.RData')
+
+to.plo <- sal.grd
+labs <- c('January', 'February', 'March', 'April', 'May', 'June', 'July', 
+  'August', 'September', 'October', 'November', 'December')
+to.plo$month.name <- factor(to.plo$month.num, labels = labs)
+
+#min, max sal.ref vals to plot....
+lim.vals<- plyr::ddply(
+  epc.est, 
+  .variable = c('seg', 'month.num'), 
+  .fun = function(x){
+    Low <- quantile(x$sal.ref, 0.05)
+    High <- quantile(x$sal.ref, 0.95)
+    data.frame(Low, High)
+    }
+  )
+lim.vals$month.name <- factor(lim.vals$month.num, labels = labs)
+
+# months to sub
+month.sub <- 'July'
+to.plo <- to.plo[to.plo$month.name == month.sub, ]
+lim.vals <- lim.vals[lim.vals$month.name == month.sub, ]
+
+# constrain plots to quants
+to.plo <- merge(to.plo, lim.vals, by = c('seg'), all.x = T)
+sel.vec <- with(to.plo, 
+  sal.grid >= Low &
+  sal.grid <= High
+  )
+to.plo <- to.plo[sel.vec, ]
+
+#y axis label for plots
+ylabs<-expression(paste('Chloropyhll-',italic(a),' (',italic('\u03bc'),'g ',L^-1,')'))
+
+p1 <- ggplot(to.plo, aes(x = sal.grid, y = bt.md, group = dec.time, 
+    colour = dec.time)) + 
+  geom_line(size = 1) + 
+  facet_wrap(~seg, scales = 'free', ncol = 4) + 
+  scale_y_continuous(ylabs) +
+  scale_x_continuous(name=expression(italic(Sal[ff]))) +
+  theme_mine() +
+  theme(legend.position = 'bottom') +
+  scale_colour_gradientn('Year', colours = pal(5)[c(2:5)])
+
+pdf('fig/title_plo.pdf', width = 12, height =3.5, family = 'serif')
+print(p1)
+invisible(dev.off())
+@
+
+\setbeamercolor{title}{fg=mypal5} % main title
+\setbeamercolor{frametitle}{fg=mypal4, bg=mypal2} % frame titles
+\setbeamercolor{structure}{fg=mypal4} % bottom banner
+\setbeamercolor{normal text}{fg=mypal5}
+\usebackgroundtemplate{\includegraphics[height=\paperheight,width=\paperwidth]{fig/back_tmp.pdf}}
+
+% macros
+\newcommand{\emtxt}[1]{\textbf{\textit{#1}}}
+\newcommand{\ShowSexpr}[1]{\texttt{{\char`\\}Sexpr\{#1\}}}
+\newcommand{\Bigtxt}[1]{\textbf{\textit{#1}}}
+
+\begin{document}
+
+\title[Memoirs of a GED post-doc]{\textbf{Nutrients, estuaries, and coffee: Memoirs of a GED post-doc}}
+\author[M. Beck]{Marcus W. Beck, Ph.D.}
+
+\institute[USEPA]{USEPA National Health and Environmental Effects Research Laboratory, Gulf Ecology Division, \href{mailto:beck.marcus@epa.gov}{beck.marcus@epa.gov}, Phone: 8509342480}
+
+\date{August 28, 2017}
+
+\titlegraphic{\includegraphics[width=0.95\linewidth]{fig/title_plo.pdf}}
+
+%%%%%%
+\begin{frame}[shrink]
+\titlepage
+\end{frame}
+
+\section{Background}
+
+%%%%%%
+\begin{frame}{}{}
+
+\end{frame}
+
+%%%%%%
+\section{References}
+\begin{frame}[allowframebreaks,t]{\textbf{References}}
+\tiny
+\setbeamertemplate{bibliography item}{}
+\bibliographystyle{apalike_mine}
+\bibliography{refs}
+\end{frame}
+
+\end{document}
