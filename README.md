@@ -1,3 +1,3 @@
-##README
+# README
 
 Materials for EPA exit seminar
