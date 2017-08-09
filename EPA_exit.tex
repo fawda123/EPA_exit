@@ -406,14 +406,16 @@ Better description of nutrient endpoints can change conclusions
 \centerline{\includegraphics[width = \textwidth]{fig/trndcomp1.pdf}}
 \end{frame}
 
+\section{The EPA experience}
+
 %%%%%%
-\begin{frame}{The EPA experience}
+\begin{frame}{The EPA experience}{}
 \begin{columns}
 \begin{column}{0.5\textwidth}
 \centerline{\includegraphics[width=0.3\linewidth]{fig/epa_logo.png}}
 \end{column}
 \begin{column}{0.5\textwidth}
-R-term post-doc, Dec. 2015
+\emtxt{R-term post-doc, Dec. 2015}
 \end{column}
 \end{columns}
 \vspace{0.15in}
@@ -421,12 +423,12 @@ R-term post-doc, Dec. 2015
 \item<+-> You are a federal employee \\~\\
 \item<+-> You are not a permanent federal employee \\~\\
 \item<+-> You can't tell contractors what to do \\~\\
-\item<+-> You can hoard library books
+\item<+-> You move out of cubeland
 \end{itemize}
 \end{frame}
 
 %%%%%%
-\begin{frame}{The EPA experience}
+\begin{frame}{The EPA experience}{}
 \emtxt{4.02B} Nutrient Response and Recovery \\~\\
 \begin{itemize}
 \item Simulation modelling of NGOM hypoxia  \\~\\
@@ -439,6 +441,146 @@ R-term post-doc, Dec. 2015
 \begin{itemize}
 \item Coral Biocriteria development 
 \end{itemize}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\centerline{\emtxt{Community General Ecology Model}}
+\vspace{0.1in}
+\centerline{\fbox{\includegraphics[trim= 0cm 0cm 0cm 0cm, clip=true,width=0.65\textwidth]{fig/shelf.png}}}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\vspace{0.15in}
+\centerline{\includegraphics[trim= 0cm 0cm 0cm 2cm, clip=true,width=0.85\textwidth]{fig/CGEM.pdf}}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\centerline{\fbox{\includegraphics[trim= 0cm 0cm 0cm 0cm, clip=true,width=0.60\textwidth]{fig/CGEM-0dLogo-ST.jpg}}}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+\item 36 state variables
+\item 108 structural equations
+\item 251 parameters
+\end{itemize}
+\end{column}
+\end{columns}
+\vspace{0.1in}
+\centerline{\includegraphics[width=0.85\textwidth]{fig/fishmod.pdf}}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\emtxt{Basic concepts}: \\~\\
+Models seek to provide generality, precision, realism \cite{Levins66}\\~\\
+We can evaluate model uncertainty to address what a model should provide in this context\\~\\
+\emtxt{Parameter uncertainty} - uncertainty in the parameter space that provides bounds on structural equations
+\end{frame}
+
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\emtxt{Assumptions}: \\~\\
+\begin{itemize}
+\item Parameter values based on field/lab data, literature, expert judgment \\~\\
+\item Precision/accuracy limitations due to model domain, reproducibility \\~\\
+\item Models are over-parameterized to address all objectives
+\end{itemize}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\emtxt{Objective}: Evaluate FishTank as 0D unit for larger CGEM model, provide guidance for further refining or application to new environments \\~\\
+\begin{itemize}
+\item Local sensitivity analysis and identifiability \\~\\
+\item Parameter selection heuristics
+\end{itemize}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\emtxt{Method}: Local sensitivity analysis, single perturbation of model parameters \cite{Soetaert10} \\~\\
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{equation*}
+S_{ij} = \frac{\partial y_i}{\partial \Theta_j}\cdot\frac{w_{\Theta_j}}{w_{y_i}}
+\end{equation*}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{equation*}
+L_j = \sum|S_{ij}|/n
+\end{equation*}
+\end{column}
+\end{columns}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+
+
+{\centering \includegraphics[width=\maxwidth]{fig/unnamed-chunk-2-1} 
+
+}
+
+
+
+\end{column}
+\begin{column}{0.5\textwidth}
+%latex.default(totab[, -1], file = "", colheads = c("default",     "\\textit{umax}", "\\textit{mA}"), rowlabel = "timestep",     size = "scriptsize")%
+\begin{table}[!tbp]
+{\scriptsize
+\begin{center}
+\begin{tabular}{lrrr}
+\hline\hline
+\multicolumn{1}{l}{timestep}&\multicolumn{1}{c}{default}&\multicolumn{1}{c}{\textit{umax}}&\multicolumn{1}{c}{\textit{mA}}\tabularnewline
+\hline
+1&$172.0$&$172.0$&$172.0$\tabularnewline
+2&$183.3$&$183.3$&$183.3$\tabularnewline
+3&$193.3$&$193.3$&$193.4$\tabularnewline
+4&$202.2$&$202.1$&$202.2$\tabularnewline
+5&$210.0$&$209.9$&$210.1$\tabularnewline
+6&$217.0$&$216.9$&$217.1$\tabularnewline
+\hline
+\end{tabular}\end{center}}
+\end{table}
+
+\end{column}
+\end{columns}
+\end{frame}
+
+
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\centerline{\includegraphics[width=\textwidth]{fig/senstile.pdf}}
+\end{frame}
+
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in unit.pmax(pA\$widths[2:3], pB\$widths[2:3]): could not find function "{}unit.pmax"{}}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in eval(expr, envir, enclos): object 'maxWidth' not found}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in eval(expr, envir, enclos): object 'maxWidth' not found}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in eval(expr, envir, enclos): object 'maxWidth' not found}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in unit.pmax(pC\$widths[2:3], pD\$widths[2:3], pE\$widths[2:3]): could not find function "{}unit.pmax"{}}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in eval(expr, envir, enclos): object 'maxWidth' not found}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in eval(expr, envir, enclos): object 'maxWidth' not found}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in textGrob(ylab, rot = 90): could not find function "{}textGrob"{}}}\end{kframe}
+\end{knitrout}
+
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\centerline{\includegraphics[width=\textwidth]{fig/senstile.pdf}}
 \end{frame}
 
 %%%%%%

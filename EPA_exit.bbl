@@ -32,10 +32,21 @@ Caffrey JM, Murrell MC, Amacker KS, Harper J, Phipps S, Woodrey M. 2013.
   {M}exico.
 \newblock Estuaries and Coasts, 37(1):222--241.
 
+\bibitem[Levins, 1966]{Levins66}
+Levins R. 1966.
+\newblock The strategy of model building in population biology.
+\newblock American Scientist, 54(4):421--431.
+
 \bibitem[Odum, 1956]{Odum56}
 Odum HT. 1956.
 \newblock Primary production in flowing waters.
 \newblock Limnology and Oceanography, 1(2):102--117.
+
+\bibitem[Soetaert and Petzoldt, 2010]{Soetaert10}
+Soetaert K, Petzoldt T. 2010.
+\newblock Inverse modelling, sensitivity, and {M}onte {C}arlo analysis in {R}
+  using package {FME}.
+\newblock Journal of Statistical Software, 33(3):1--28.
 
 \bibitem[{TBEP (Tampa Bay Estuary Program)}, 2011]{TBEP11}
 {TBEP (Tampa Bay Estuary Program)}. 2011.

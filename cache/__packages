@@ -25,3 +25,8 @@ purrr
 dplyr
 chron
 StreamMetabolism
+bindrcpp
+lubridate
+ggmap
+ggsn
+ggpolypath

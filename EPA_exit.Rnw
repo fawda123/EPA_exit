@@ -64,6 +64,10 @@ library(RColorBrewer)
 library(SWMPr)
 library(WRTDStidal)
 library(tidyverse)
+library(lubridate)
+library(ggmap)
+library(ggsn)
+library(ggpolypath)
 source('R/funcs.R')
 @
 
@@ -569,8 +573,10 @@ Better description of nutrient endpoints can change conclusions
 \centerline{\includegraphics[width = \textwidth]{fig/trndcomp1.pdf}}
 \end{frame}
 
+\section{The EPA experience}
+
 %%%%%%
-\begin{frame}{The EPA experience}
+\begin{frame}{The EPA experience}{}
 \begin{columns}
 \begin{column}{0.5\textwidth}
 \centerline{\includegraphics[width=0.3\linewidth]{fig/epa_logo.png}}
@@ -584,12 +590,12 @@ Better description of nutrient endpoints can change conclusions
 \item<+-> You are a federal employee \\~\\
 \item<+-> You are not a permanent federal employee \\~\\
 \item<+-> You can't tell contractors what to do \\~\\
-\item<+-> You can hoard library books
+\item<+-> You move out of cubeland
 \end{itemize}
 \end{frame}
 
 %%%%%%
-\begin{frame}{The EPA experience}
+\begin{frame}{The EPA experience}{}
 \emtxt{4.02B} Nutrient Response and Recovery \\~\\
 \begin{itemize}
 \item Simulation modelling of NGOM hypoxia  \\~\\
@@ -605,8 +611,352 @@ Better description of nutrient endpoints can change conclusions
 \end{frame}
 
 %%%%%%
-\begin{frame}{The EPA experience}
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\centerline{\emtxt{Community General Ecology Model}}
+\vspace{0.1in}
+\centerline{\fbox{\includegraphics[trim= 0cm 0cm 0cm 0cm, clip=true,width=0.65\textwidth]{fig/shelf.png}}}
+\end{frame}
 
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\vspace{0.15in}
+\centerline{\includegraphics[trim= 0cm 0cm 0cm 2cm, clip=true,width=0.85\textwidth]{fig/CGEM.pdf}}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\centerline{\fbox{\includegraphics[trim= 0cm 0cm 0cm 0cm, clip=true,width=0.60\textwidth]{fig/CGEM-0dLogo-ST.jpg}}}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+\item 36 state variables
+\item 108 structural equations
+\item 251 parameters
+\end{itemize}
+\end{column}
+\end{columns}
+\vspace{0.1in}
+\centerline{\includegraphics[width=0.85\textwidth]{fig/fishmod.pdf}}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\emtxt{Basic concepts}: \\~\\
+Models seek to provide generality, precision, realism \cite{Levins66}\\~\\
+We can evaluate model uncertainty to address what a model should provide in this context\\~\\
+\emtxt{Parameter uncertainty} - uncertainty in the parameter space that provides bounds on structural equations
+\end{frame}
+
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\emtxt{Assumptions}: \\~\\
+\begin{itemize}
+\item Parameter values based on field/lab data, literature, expert judgment \\~\\
+\item Precision/accuracy limitations due to model domain, reproducibility \\~\\
+\item Models are over-parameterized to address all objectives
+\end{itemize}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\emtxt{Objective}: Evaluate FishTank as 0D unit for larger CGEM model, provide guidance for further refining or application to new environments \\~\\
+\begin{itemize}
+\item Local sensitivity analysis and identifiability \\~\\
+\item Parameter selection heuristics
+\end{itemize}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\emtxt{Method}: Local sensitivity analysis, single perturbation of model parameters \cite{Soetaert10} \\~\\
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{equation*}
+S_{ij} = \frac{\partial y_i}{\partial \Theta_j}\cdot\frac{w_{\Theta_j}}{w_{y_i}}
+\end{equation*}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{equation*}
+L_j = \sum|S_{ij}|/n
+\end{equation*}
+\end{column}
+\end{columns}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+<<echo = F, fig.height = 4, fig.width = 6, cache = F>>=
+load(file = 'data/sens_ests_all.RData')
+
+toplo <- filter(sens_ests_all$O2$raw, Parameter %in% c('umax_1', 'mA_1')) %>% 
+  mutate(Parameter = as.character(par_txt(Parameter, frm = 'exp')))
+
+ggplot(toplo, aes(x = time, y = Estimate, group = Parameter, colour = Parameter)) + 
+  geom_line(aes(y = default), colour = 'black') + 
+  geom_line() + 
+  facet_wrap(~ Parameter, label = label_parsed, ncol = 1) + 
+  theme_minimal() +
+  scale_colour_brewer(palette = 'Set1') + 
+  theme(legend.position = 'none')
+
+@
+\end{column}
+\begin{column}{0.5\textwidth}
+<<echo = F, results = 'asis', cache = F>>=
+options(digits = 1)
+totab <- spread(toplo, Parameter, Estimate) %>% 
+  round(., 1) %>% 
+  head
+
+latex(totab[, -1], file = '', colheads = c('default', '\\textit{umax}', '\\textit{mA}'), rowlabel = 'timestep', size = 'scriptsize')
+options(digits = 7)
+@
+\end{column}
+\end{columns}
+\end{frame}
+
+<<senstile, cache = T, eval = T, echo = F, results = 'hide', message = F>>=
+
+# initial conditions
+data(ini_eval)
+data(struct_eval)
+
+to_eval <- lapply(ini_eval, function(x) x[[2]]) %>% 
+  c(., struct = list(struct_eval))
+
+eval_levs <- c('def', 'apr', 'sep', 'struct')
+eval_labs <- c('Default', 'Initial: April', 'Initial: September', 'Structure: complex')
+
+toplo_all <- sapply(1:length(to_eval), function(x) {
+  
+  tmp <- reshape2::melt(to_eval[[x]], id.var = c('Parameter', 'error', 'Category'))
+  nms <- names(to_eval)[x]
+
+  stts_lev <- rev(c('NH4', 'Chla_mg_tot', 'O2', 'irradiance', 'NO3', 'OM1', 'OM2', 'PO4'))
+  stts_lab <- rev(c('Ammonium', 'Chlorophyll', 'Dissolved Oxygen', 'Irradiance', 'Nitrate', 'POM', 'DOM', 'Phosphate'))
+  
+  toplo <- mutate(tmp,
+      L1 = factor(L1, levels = rev(stts_lev), labels = rev(stts_lab)),
+      Parameter = as.character(par_txt(Parameter, frm = 'exp')), 
+      nms = nms
+    ) %>% 
+    rename(Sensitivity = error)
+
+  return(toplo)
+  
+  }, simplify = F)
+toplo_all <- do.call('rbind', toplo_all)
+toplo_all <- mutate(toplo_all, nms = factor(nms, levels = eval_levs, labels = eval_labs)) %>% 
+  filter(!Category %in% 'Temperature')
+
+# get only the default results
+toplo_all <- filter(toplo_all, nms %in% 'Default')
+
+pbase <- theme(
+  panel.grid.major = element_blank(), 
+  panel.grid.minor = element_blank(), 
+  axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1, size = 8), 
+  axis.text.y = element_text(size = 8),
+  legend.position = 'top', 
+  plot.margin = grid::unit(c(2, 2, 2, 2), 'pt'), 
+  strip.background = element_blank(), 
+  strip.text.y = element_text(angle = 0, hjust = 0, vjust = 0.5)
+  ) 
+
+p <- ggplot(toplo_all, aes(y = L1, x = Parameter, fill = Sensitivity)) + 
+  geom_tile(colour = 'black') + 
+  pbase +
+  scale_x_discrete('Parameter', 
+    expand = c(0, 0),
+    breaks = toplo_all$Parameter, 
+    labels = parse(text = toplo_all$Parameter)
+    ) + 
+  scale_y_discrete('State variable', expand = c(0, 0)) +
+  scale_fill_distiller(palette = "Spectral", trans = 'log10',  na.value = 'grey95') +
+  facet_grid(.~Category, scales = 'free_x', space = 'free') + 
+  guides(fill = guide_colourbar(barheight = 0.25, barwidth = 5, label.theme = element_text(size = 6, angle = 0)))
+
+pdf('fig/senstile.pdf', family = 'serif', height = 3.5, width = 7)
+p
+dev.off()
+@
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\centerline{\includegraphics[width=\textwidth]{fig/senstile.pdf}}
+\end{frame}
+
+
+<<areachg, cache = T, eval = T, echo = F, results = 'hide', message = F>>=
+
+# area time series and 2d arrays (areats, arrs)
+data(area)
+
+# theme
+mytheme <- theme_minimal() + 
+  theme(
+    axis.line.x = element_line(), 
+    axis.line.y = element_line(), 
+    axis.title.y = element_blank(),
+    axis.title.x = element_blank(), 
+    axis.ticks.x = element_line(),
+    axis.ticks.y = element_line(),
+    axis.ticks.length = unit(.1, "cm"),
+    legend.title = element_blank(),
+    legend.position = 'top', 
+    legend.text.align = 0
+  )
+
+# colors
+cols <- pal(5)
+
+# format area time series 
+areats <- areats %>% 
+  dplyr::select(dts = 1, everything()) %>% 
+  mutate(
+    dts = as.Date(dts), 
+    mo = month(dts, label = T)
+  ) %>% 
+  gather('var', 'val', -dts, -mo) %>% 
+  mutate(
+    var = gsub('\\+50%$', '', var),
+    val = val / 1000
+    ) %>% 
+  spread(var, val) %>% 
+  filter(mo %in% c('May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'))
+
+# formatted levels in order
+levs <- c('umax', 'ZKa', 'astar490', 'KG1', 'Tref')
+labs <- paste0(c('umax', 'ZKa', 'astar490', 'KG1', 'Tref(nospA+nospZ)'), '_1')
+labs <- par_txt(labs, frm = 'exp')
+
+##
+# data for each plot
+
+toplo1 <- areats
+
+toplo2 <- gather(areats, 'var', 'val', -dts, -Original, -mo) %>% 
+  mutate(
+    valper = val - Original,
+    var = factor(var, levels = levs, labels = labs)
+  )
+
+toplo3 <- areats %>%
+  group_by(mo) %>% 
+  summarise(
+    valup = t.test(Original)$conf.int[2],
+    valdn = t.test(Original)$conf.int[1],
+    val = mean(Original)
+  )
+
+toplo4 <- gather(areats, 'var', 'val', -dts, -mo, -Original) %>% 
+  group_by(mo, var) %>% 
+  summarise(
+    valup = t.test(val, Original)$conf.int[2],
+    valdn = t.test(val, Original)$conf.int[1],
+    val = mean(val) - mean(Original)
+  ) %>% 
+  ungroup %>% 
+  mutate(
+    var = factor(var, levels = levs, labels = labs)
+  )
+
+toplo5 <- filter(arrs, parm %in% 'original')
+
+toplo6 <- filter(arrs, !parm %in% 'original') %>% 
+  mutate(
+    parm = factor(parm, levels = levs, labels = labs)
+  )
+
+##
+# subplots
+
+p1 <- ggplot(toplo1, aes(x = dts, y = Original)) + 
+  geom_polygon() + 
+  mytheme + 
+  scale_x_date(date_labels = '%b', date_breaks = '1 month') +
+  ggtitle(label = NULL, subtitle = '(a) Area with default parameters')
+
+p2 <- ggplot(toplo2, aes(x = dts, y = valper, fill = var)) + 
+  geom_ribbon(aes(ymin = 0, ymax = valper), colour = 'darkgrey', size = 0.35) + 
+  mytheme %+replace%
+  theme(legend.position = 'none') +
+  scale_x_date(date_labels = '%b', date_breaks = '1 month') +
+  scale_fill_manual(values = cols, labels = labs) +
+  ggtitle(label = NULL, subtitle = '(c) Area differences with parameter perturbations')
+
+p3 <- ggplot(toplo3, aes(x = mo, y = val)) + 
+  geom_bar(stat = 'identity') + 
+  geom_errorbar(aes(ymin = valdn, ymax = valup), width = 0.25, lwd = 0.35) + 
+  mytheme +
+  ggtitle(label = NULL, subtitle = '(b) Averages with default parameters')
+
+pd <- position_dodge(0.75)
+p4 <- ggplot(toplo4, aes(x = mo, y = val, fill = var)) + 
+  geom_bar(stat = 'identity', position = pd, width = 0.75, colour = 'darkgrey', lwd = 0.35) + 
+  geom_errorbar(aes(ymin = valdn, ymax = valup), position = pd, width = 0.25, size = 0.35) + 
+  scale_fill_manual(values = cols, labels = labs) +
+  mytheme +
+  ggtitle(label = NULL, subtitle = '(d) Average differences with parameter perturbations')
+
+pleg <- g_legend(p4)
+p4 <- p4 + 
+  mytheme  %+replace%
+  theme(legend.position = 'none')
+
+# basemap for area ts
+ext <- make_bbox(arrs$long, arrs$lat, f = 0.01)
+map <- get_stamenmap(ext, zoom = 9, maptype = "toner-lite")
+    
+p5 <- ggmap(map) + 
+  geom_polypath(data = toplo5, aes(x = long, y = lat, group = grp), alpha = 0.5) +
+  geom_path(data = toplo6, aes(x = long, y = lat, group = grp, colour = parm), alpha = 0.8, size = 0.8) + 
+  scale_y_continuous(expand = c(0, 0)) + 
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_colour_manual(values = cols, labels = labs) +
+  coord_equal() + 
+  mytheme %+replace%
+  theme(legend.position = 'none') +
+  ggtitle(label = NULL, subtitle = '(e) Estimated areal extents on August 28, default extent in grey') + 
+  scalebar(location = 'bottomleft', y.min = 28.35, y.max = 28.8, x.min = -93.3, x.max = -92, 
+    dist = 20, dd2km= TRUE, model='WGS84', st.dist=.1, st.size = 2, height = 0.08)
+
+pA <- ggplot_gtable(ggplot_build(p1))
+pB <- ggplot_gtable(ggplot_build(p2))
+pC <- ggplot_gtable(ggplot_build(p3))
+pD <- ggplot_gtable(ggplot_build(p4))
+pE <- ggplot_gtable(ggplot_build(p5))
+maxWidth = unit.pmax(pA$widths[2:3], pB$widths[2:3])
+pA$widths[2:3] <- maxWidth
+pC$widths[2:3] <- maxWidth
+pE$widths[2:3] <- maxWidth
+maxWidth = unit.pmax(pC$widths[2:3], pD$widths[2:3], pE$widths[2:3])
+pB$widths[2:3] <- maxWidth
+pD$widths[2:3] <- maxWidth
+
+ylab <- expression(paste('Hypoxic area ( ', km^2, ' x 1000)'))
+pdf('fig/areachg1.pdf', family = 'serif', height = 6, width = 7)
+grid.arrange(
+  arrangeGrob(
+    arrangeGrob(pA, pC, ncol = 2),
+    pleg, 
+    arrangeGrob(pB, pD, ncol = 2), 
+    ncol = 1, 
+    left = textGrob(ylab, rot = 90),
+    heights = c(1, 0.1, 1)
+  )
+)
+dev.off()
+
+pdf('fig/areachg2.pdf', family = 'serif', height = 3, width = 7)
+pE
+dev.off()
+
+
+@
+
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\centerline{\includegraphics[width=\textwidth]{fig/senstile.pdf}}
 \end{frame}
 
 %%%%%%
