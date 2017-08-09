@@ -1,0 +1,46 @@
+ \newcommand{\noop}[1]{}
+\begin{thebibliography}{}
+
+\bibitem[Beck and {Hagy III}, 2015]{Beck15}
+Beck MW, {Hagy III} JD. 2015.
+\newblock Adaptation of a weighted regression approach to evaluate water
+  quality trends in an estuary.
+\newblock Environmental Modelling and Assessment, 20(6):637--655.
+
+\bibitem[Beck et~al., 2015]{Beck15b}
+Beck MW, {Hagy III} JD, Murrell MC. 2015.
+\newblock Improving estimates of ecosystem metabolism by reducing effects of
+  tidal advection on dissolved oxygen time series.
+\newblock Limnology and Oceanography: Methods, 13(12):731--745.
+
+\bibitem[Beck and Murphy, 2017]{Beck17}
+Beck MW, Murphy RR. 2017.
+\newblock Numerical and qualitative contrasts of two statistical models for
+  water quality change in tidal waters.
+\newblock Journal of the American Water Resources Association, 53(1):197--219.
+
+\bibitem[Beck et~al., 2014]{Beck14a}
+Beck MW, Wilson BN, Vondracek B, Hatch LK. 2014.
+\newblock Application of neural networks to quantify the utility of indices of
+  biotic integrity for biological monitoring.
+\newblock Ecological Indicators, 45:195--208.
+
+\bibitem[Caffrey et~al., 2013]{Caffrey14}
+Caffrey JM, Murrell MC, Amacker KS, Harper J, Phipps S, Woodrey M. 2013.
+\newblock Seasonal and inter-annual patterns in primary production, respiration
+  and net ecosystem metabolism in 3 estuaries in the northeast {G}ulf of
+  {M}exico.
+\newblock Estuaries and Coasts, 37(1):222--241.
+
+\bibitem[Odum, 1956]{Odum56}
+Odum HT. 1956.
+\newblock Primary production in flowing waters.
+\newblock Limnology and Oceanography, 1(2):102--117.
+
+\bibitem[{TBEP (Tampa Bay Estuary Program)}, 2011]{TBEP11}
+{TBEP (Tampa Bay Estuary Program)}. 2011.
+\newblock {Tampa Bay Water Atlas}.
+\newblock \url{http://www.tampabay.wateratlas.usf.edu/}. (Accessed October,
+  2013).
+
+\end{thebibliography}

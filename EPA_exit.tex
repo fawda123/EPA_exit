@@ -51,7 +51,7 @@
 \usepackage{alltt}
 \usetheme{Boadilla}
 \usepackage{graphicx}
-\usepackage[final]{animate}
+\usepackage[draft]{animate}
 \usepackage{breqn}
 \usepackage{xcolor}
 \usepackage{booktabs}
@@ -85,9 +85,6 @@
 % my custom ggplot theme
 
 
-% figure used on title page
-
-
 \setbeamercolor{title}{fg=mypal5} % main title
 \setbeamercolor{frametitle}{fg=mypal4, bg=mypal2} % frame titles
 \setbeamercolor{structure}{fg=mypal4} % bottom banner
@@ -96,8 +93,6 @@
 
 % macros
 \newcommand{\emtxt}[1]{\textbf{\textit{#1}}}
-\newcommand{\ShowSexpr}[1]{\texttt{{\char`\\}Sexpr\{#1\}}}
-\newcommand{\Bigtxt}[1]{\textbf{\textit{#1}}}
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
 
@@ -108,7 +103,7 @@
 
 \date{August 28, 2017}
 
-\titlegraphic{\includegraphics[width=0.95\linewidth]{fig/title_plo.pdf}}
+\titlegraphic{\includegraphics[trim = 0cm 0cm 0cm -3cm,clip=true,width=\linewidth]{fig/titlegraphic.pdf}}
 
 %%%%%%
 \begin{frame}[shrink]
@@ -118,7 +113,346 @@
 \section{Background}
 
 %%%%%%
-\begin{frame}{}{}
+\begin{frame}{Why are we here today?}{}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{center}
+\fbox{\includegraphics[width=0.8\textwidth]{fig/Sartre1.jpg}}
+\end{center}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{quote}
+\Large
+Freedom is what you do with what's been done to you.\\~\\
+\vspace{0.05in}
+\hfill -- J. P. Sartre\\~\\
+\end{quote}
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%
+\begin{frame}{Why are we here today?}{}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\onslide<+->
+\begin{center}
+\fbox{\includegraphics[width=0.6\textwidth]{fig/geisha.jpg}}
+\end{center}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+\item<+-> Where did I come from? \\~\\
+\item<+-> The ORISE experience \\~\\
+\item<+-> The EPA experience \\~\\
+\item<+-> The next chapter \\~\\
+\item<+-> Final thoughts/ramblings 
+\end{itemize}
+\end{column}
+\end{columns}\end{frame}
+
+\section{Where did I come from?}
+
+%%%%%%
+\begin{frame}{Where did I come from?}{}
+Minnesota, the land of 11,842 lakes
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\centerline{\includegraphics[width=\textwidth]{fig/mn_lake_inset.pdf}}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{fig/mn_seal.jpg} \\~\\
+\includegraphics[width=0.8\textwidth]{fig/mn_lake.jpg}
+\end{center}
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%
+\begin{frame}{Where did I come from?}{}
+\begin{itemize}
+\item Dataset of 332 vegetation surveys, courtesy of MNDNR \cite{Beck14a}
+\item Environmental data describing lake characteristics and anthropogenic stressors
+\end{itemize}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\centerline{\includegraphics[width=0.9\textwidth]{fig/Beck_GEDsem-ibi_data.pdf}}
+\end{column}
+\begin{column}{0.5\textwidth}
+\scriptsize
+\begin{itemize}
+\item{lake surface area}
+\item{maximum lake depth}
+\item{trophic state index}
+\item{growing degree days}
+\item{percent agriculture in wshed}
+\item{percent impervious surfaces in wshed}
+\item{density of groundwater wells in wshed}
+\item{wshed area to lake area}
+\item{crop productivity index of wshed}
+\item{dock density}
+\item{...}
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\section{The ORISE experience}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{}
+\centerline{\emtxt{July 2013, moved to Pensacola}}
+\vspace{0.15in}
+\centerline{\fbox{\includegraphics[width = 0.8\textwidth]{fig/sabine.pdf}}}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{}
+\begin{columns}
+\begin{column}{0.67\textwidth}
+\includegraphics[width=\textwidth]{fig/orise.jpg}
+\end{column}
+\begin{column}{0.33\textwidth}
+\includegraphics[width=\textwidth]{fig/orau.jpg}
+\end{column}
+\end{columns}
+\vspace{0.2in}
+\begin{itemize}
+\item<+-> ORISE is a mysterious entity \\~\\
+\item<+-> You are not an EPA employee \\~\\
+\item<+-> EPA employees cannot tell you what to do \\~\\
+\item<+-> You are not responsible for anything
+\end{itemize}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Tampa Bay trend analysis}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+\item Four bay segments\\~\\
+\item Monthly wq data at 50 stations from 1974 to present \\~\\
+\item Longitudinal profile of nutrient load and salinity \\~\\
+\end{itemize}
+\vspace{0cm}\hspace*{15pt}\scalebox{0.7}{\hbox{\tiny Data from \cite{TBEP11}}}
+\end{column}
+\begin{column}{0.5\textwidth}
+\centerline{\includegraphics[width = \textwidth]{fig/tb_map.pdf}}
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Tampa Bay trend analysis}
+\centerline{\includegraphics[width = \textwidth]{fig/annual_chl-1.pdf}}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Tampa Bay trend analysis}
+\onslide<+->
+\begin{block}{Study objective}
+Adapt and apply a nutrient response model for estuaries that leverages the descriptive capabilities of large datasets \scriptsize \cite{Beck15}
+\end{block}
+\vspace{0.2in}
+\onslide<+->
+Questions of concern -- Can we...
+\begin{itemize}
+\item ...provide a natural history of water quality that is temporally consistent with drivers of change?
+\onslide<+->
+\item ...improve our understanding of the nutrient-response paradigm in estuaries?
+\end{itemize}
+\end{frame}
+
+%%%%%%
+\begin{frame}[t]{The ORISE experience}{Tampa Bay trend analysis}
+\onslide<1->
+How does it work?  
+\begin{center}
+$\ln\left(N\right) = \beta_0 + \beta_1 t + \beta_2 Sal + \beta_3 \sin\left(2\pi t\right) + \beta_4 \cos\left(2\pi t\right)$\\~\\
+$N$: nitrogen (or other response endpoint)\\
+$t$: time\\
+$Sal$: Salinity (or other flow-related variable)
+\end{center}
+\includegraphics<2>[width = \textwidth, page = 1]{fig/wrtds_pieces.pdf}
+\includegraphics<3>[width = \textwidth, page = 2]{fig/wrtds_pieces.pdf}
+\includegraphics<4>[width = \textwidth, page = 3]{fig/wrtds_pieces.pdf}
+\includegraphics<5>[width = \textwidth, page = 4]{fig/wrtds_pieces.pdf}
+\includegraphics<6>[width = \textwidth, page = 5]{fig/wrtds_pieces.pdf}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Tampa Bay trend analysis}
+{\small
+\emtxt{Points}: observed time series (black are weighted, grey is zero weight)\\
+\emtxt{Green point}: observation at the center of the regression\\
+\emtxt{Blue line}: Global model with weights specific to the window\\
+\emtxt{Red line}: Accumulated WRTDS model
+}
+\begin{center}
+\animategraphics[controls,width=\linewidth]{10}{fig/wrtds_pieces2}{}{} %frame rate is 12 per/sec
+\end{center}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Tampa Bay trend analysis}
+\centerline{RMSE fit for unweighted = 0.58, WRTDS = 0.36}
+\begin{center}
+\includegraphics[width = \textwidth]{fig/wrtds_perf.pdf}
+\end{center}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Tampa Bay trend analysis}
+Because the model is dynamic, we have parameters describing the relationship of chlorophyll with other factors specific to different time periods \\~\\
+\begin{columns}[T]
+\begin{column}{0.45\textwidth}
+\includegraphics[width = \textwidth]{fig/hill-1.pdf}
+\end{column}
+\begin{column}{0.45\textwidth}
+\begin{itemize}
+\item Early period (light blue) - point-sources
+\item Late period (dark blue) - non-point sources
+\item Chlorophyll shows increasing response to freshwater input in recent years
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Tampa Bay trend analysis}
+\onslide<+->
+\begin{figure}
+\centerline{\includegraphics[width = \textwidth]{fig/p8obs.pdf}}
+\caption{Observed nitrogen time series at P8 (SF Bay Delta RMP)}
+\end{figure}
+\onslide<+->
+\vspace{-0.35in}
+\begin{figure}
+\centerline{\includegraphics[width = \textwidth]{fig/p8prdnrm.pdf}}
+\caption{Annual predicted and flow-normalized nitrogen from WRTDS.}
+\end{figure}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Time series detiding}
+The `Odum' open-water method has been used for decades to estimate rates of ecosystem metabolism \scriptsize \cite{Odum56} \\~\\
+\normalsize
+\begin{center}
+$\frac{\delta DO}{\delta t} = P - R + D$
+\end{center}
+Metabolic rates provide a measure of productivity in a system - are estuaries sources or sinks of organic matter? \scriptsize \cite{Caffrey14}
+\normalsize \\~\\
+Applications to estuarine monitoring data have been somewhat successful - why?? 
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Time series detiding}
+The `Odum' method assumes DO represents biological processes...
+
+
+{\centering \includegraphics[width=0.95\textwidth]{fig/sapdo-1} 
+
+}
+
+
+
+
+
+{\centering \includegraphics[width=0.95\textwidth]{fig/saptide-1} 
+
+}
+
+
+
+\end{frame}
+
+
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Time series detiding}
+\begin{center}
+\animategraphics[controls,width=\linewidth]{25}{fig/detide_ani}{1}{169} %frame rate is 50 per/sec
+\end{center}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Time series detiding}
+DO time series and ecosystem metabolism {\footnotesize\cite{Beck15b}}
+\includegraphics[width = \textwidth]{fig/metex.pdf}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Additional WRTDS applications}
+Comparing WRTDS and GAMs for trend evaluation {\footnotesize \cite{Beck17}}
+\begin{columns}
+\begin{column}{0.38\textwidth}
+\includegraphics[width = \textwidth]{fig/patux_map.pdf}
+\end{column}
+\begin{column}{0.65\textwidth}
+\includegraphics[width = \textwidth]{fig/predann.pdf}
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Additional WRTDS applications}
+\centerline{\includegraphics[width = 0.75\textwidth]{fig/delt_map.pdf}}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Additional WRTDS applications}
+Better description of nutrient endpoints can change conclusions
+\centerline{\includegraphics[width = \textwidth]{fig/trndcomp1.pdf}}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The EPA experience}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\centerline{\includegraphics[width=0.3\linewidth]{fig/epa_logo.png}}
+\end{column}
+\begin{column}{0.5\textwidth}
+R-term post-doc, Dec. 2015
+\end{column}
+\end{columns}
+\vspace{0.15in}
+\begin{itemize}
+\item<+-> You are a federal employee \\~\\
+\item<+-> You are not a permanent federal employee \\~\\
+\item<+-> You can't tell contractors what to do \\~\\
+\item<+-> You can hoard library books
+\end{itemize}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The EPA experience}
+\emtxt{4.02B} Nutrient Response and Recovery \\~\\
+\begin{itemize}
+\item Simulation modelling of NGOM hypoxia  \\~\\
+\end{itemize}
+\emtxt{4.02A} Microbial Indicators  \\~\\
+\begin{itemize}
+\item Data munging  \\~\\
+\end{itemize}
+\emtxt{3.01D} Watershed Sustainability  \\~\\
+\begin{itemize}
+\item Coral Biocriteria development 
+\end{itemize}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The next chapter}{}
+
+\end{frame}
+
+%%%%%%
+\begin{frame}{Final thoughts}{}
+
+\end{frame}
+
+%%%%%%
+\begin{frame}{Sincere thank-yous}{}
 
 \end{frame}
 

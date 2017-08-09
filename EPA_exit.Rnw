@@ -1,7 +1,7 @@
 \documentclass[serif]{beamer}
 \usetheme{Boadilla}
 \usepackage{graphicx}
-\usepackage[final]{animate}
+\usepackage[draft]{animate}
 \usepackage{breqn}
 \usepackage{xcolor}
 \usepackage{booktabs}
@@ -50,7 +50,6 @@ options(replace.assign=T,width=90,digits=1)
 
 % dependent data
 <<dep_dat, include = F, cache = F>>=
-# source('R/funcs.R')
 library(ggplot2)
 library(reshape2)
 library(scales)
@@ -65,6 +64,7 @@ library(RColorBrewer)
 library(SWMPr)
 library(WRTDStidal)
 library(tidyverse)
+source('R/funcs.R')
 @
 
 % get online bib file
@@ -96,59 +96,6 @@ theme_mine <- function (base_size = 12, base_family = "") {
 theme_set(theme_mine())
 @
 
-% figure used on title page
-<<title_fig, echo = F, results = 'hide', message = F, eval = T>>=
-load('data/salwt_grd.RData')
-load('data/epc_est.RData')
-
-to.plo <- sal.grd
-labs <- c('January', 'February', 'March', 'April', 'May', 'June', 'July', 
-  'August', 'September', 'October', 'November', 'December')
-to.plo$month.name <- factor(to.plo$month.num, labels = labs)
-
-#min, max sal.ref vals to plot....
-lim.vals<- plyr::ddply(
-  epc.est, 
-  .variable = c('seg', 'month.num'), 
-  .fun = function(x){
-    Low <- quantile(x$sal.ref, 0.05)
-    High <- quantile(x$sal.ref, 0.95)
-    data.frame(Low, High)
-    }
-  )
-lim.vals$month.name <- factor(lim.vals$month.num, labels = labs)
-
-# months to sub
-month.sub <- 'July'
-to.plo <- to.plo[to.plo$month.name == month.sub, ]
-lim.vals <- lim.vals[lim.vals$month.name == month.sub, ]
-
-# constrain plots to quants
-to.plo <- merge(to.plo, lim.vals, by = c('seg'), all.x = T)
-sel.vec <- with(to.plo, 
-  sal.grid >= Low &
-  sal.grid <= High
-  )
-to.plo <- to.plo[sel.vec, ]
-
-#y axis label for plots
-ylabs<-expression(paste('Chloropyhll-',italic(a),' (',italic('\u03bc'),'g ',L^-1,')'))
-
-p1 <- ggplot(to.plo, aes(x = sal.grid, y = bt.md, group = dec.time, 
-    colour = dec.time)) + 
-  geom_line(size = 1) + 
-  facet_wrap(~seg, scales = 'free', ncol = 4) + 
-  scale_y_continuous(ylabs) +
-  scale_x_continuous(name=expression(italic(Sal[ff]))) +
-  theme_mine() +
-  theme(legend.position = 'bottom') +
-  scale_colour_gradientn('Year', colours = pal(5)[c(2:5)])
-
-pdf('fig/title_plo.pdf', width = 12, height =3.5, family = 'serif')
-print(p1)
-invisible(dev.off())
-@
-
 \setbeamercolor{title}{fg=mypal5} % main title
 \setbeamercolor{frametitle}{fg=mypal4, bg=mypal2} % frame titles
 \setbeamercolor{structure}{fg=mypal4} % bottom banner
@@ -157,8 +104,6 @@ invisible(dev.off())
 
 % macros
 \newcommand{\emtxt}[1]{\textbf{\textit{#1}}}
-\newcommand{\ShowSexpr}[1]{\texttt{{\char`\\}Sexpr\{#1\}}}
-\newcommand{\Bigtxt}[1]{\textbf{\textit{#1}}}
 
 \begin{document}
 
@@ -169,7 +114,7 @@ invisible(dev.off())
 
 \date{August 28, 2017}
 
-\titlegraphic{\includegraphics[width=0.95\linewidth]{fig/title_plo.pdf}}
+\titlegraphic{\includegraphics[trim = 0cm 0cm 0cm -3cm,clip=true,width=\linewidth]{fig/titlegraphic.pdf}}
 
 %%%%%%
 \begin{frame}[shrink]
@@ -179,7 +124,503 @@ invisible(dev.off())
 \section{Background}
 
 %%%%%%
-\begin{frame}{}{}
+\begin{frame}{Why are we here today?}{}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{center}
+\fbox{\includegraphics[width=0.8\textwidth]{fig/Sartre1.jpg}}
+\end{center}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{quote}
+\Large
+Freedom is what you do with what's been done to you.\\~\\
+\vspace{0.05in}
+\hfill -- J. P. Sartre\\~\\
+\end{quote}
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%
+\begin{frame}{Why are we here today?}{}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\onslide<+->
+\begin{center}
+\fbox{\includegraphics[width=0.6\textwidth]{fig/geisha.jpg}}
+\end{center}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+\item<+-> Where did I come from? \\~\\
+\item<+-> The ORISE experience \\~\\
+\item<+-> The EPA experience \\~\\
+\item<+-> The next chapter \\~\\
+\item<+-> Final thoughts/ramblings 
+\end{itemize}
+\end{column}
+\end{columns}\end{frame}
+
+\section{Where did I come from?}
+
+%%%%%%
+\begin{frame}{Where did I come from?}{}
+Minnesota, the land of 11,842 lakes
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\centerline{\includegraphics[width=\textwidth]{fig/mn_lake_inset.pdf}}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{fig/mn_seal.jpg} \\~\\
+\includegraphics[width=0.8\textwidth]{fig/mn_lake.jpg}
+\end{center}
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%
+\begin{frame}{Where did I come from?}{}
+\begin{itemize}
+\item Dataset of 332 vegetation surveys, courtesy of MNDNR \cite{Beck14a}
+\item Environmental data describing lake characteristics and anthropogenic stressors
+\end{itemize}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\centerline{\includegraphics[width=0.9\textwidth]{fig/Beck_GEDsem-ibi_data.pdf}}
+\end{column}
+\begin{column}{0.5\textwidth}
+\scriptsize
+\begin{itemize}
+\item{lake surface area}
+\item{maximum lake depth}
+\item{trophic state index}
+\item{growing degree days}
+\item{percent agriculture in wshed}
+\item{percent impervious surfaces in wshed}
+\item{density of groundwater wells in wshed}
+\item{wshed area to lake area}
+\item{crop productivity index of wshed}
+\item{dock density}
+\item{...}
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\section{The ORISE experience}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{}
+\centerline{\emtxt{July 2013, moved to Pensacola}}
+\vspace{0.15in}
+\centerline{\fbox{\includegraphics[width = 0.8\textwidth]{fig/sabine.pdf}}}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{}
+\begin{columns}
+\begin{column}{0.67\textwidth}
+\includegraphics[width=\textwidth]{fig/orise.jpg}
+\end{column}
+\begin{column}{0.33\textwidth}
+\includegraphics[width=\textwidth]{fig/orau.jpg}
+\end{column}
+\end{columns}
+\vspace{0.2in}
+\begin{itemize}
+\item<+-> ORISE is a mysterious entity \\~\\
+\item<+-> You are not an EPA employee \\~\\
+\item<+-> EPA employees cannot tell you what to do \\~\\
+\item<+-> You are not responsible for anything
+\end{itemize}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Tampa Bay trend analysis}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+\item Four bay segments\\~\\
+\item Monthly wq data at 50 stations from 1974 to present \\~\\
+\item Longitudinal profile of nutrient load and salinity \\~\\
+\end{itemize}
+\vspace{0cm}\hspace*{15pt}\scalebox{0.7}{\hbox{\tiny Data from \cite{TBEP11}}}
+\end{column}
+\begin{column}{0.5\textwidth}
+\centerline{\includegraphics[width = \textwidth]{fig/tb_map.pdf}}
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Tampa Bay trend analysis}
+\centerline{\includegraphics[width = \textwidth]{fig/annual_chl-1.pdf}}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Tampa Bay trend analysis}
+\onslide<+->
+\begin{block}{Study objective}
+Adapt and apply a nutrient response model for estuaries that leverages the descriptive capabilities of large datasets \scriptsize \cite{Beck15}
+\end{block}
+\vspace{0.2in}
+\onslide<+->
+Questions of concern -- Can we...
+\begin{itemize}
+\item ...provide a natural history of water quality that is temporally consistent with drivers of change?
+\onslide<+->
+\item ...improve our understanding of the nutrient-response paradigm in estuaries?
+\end{itemize}
+\end{frame}
+
+%%%%%%
+\begin{frame}[t]{The ORISE experience}{Tampa Bay trend analysis}
+\onslide<1->
+How does it work?  
+\begin{center}
+$\ln\left(N\right) = \beta_0 + \beta_1 t + \beta_2 Sal + \beta_3 \sin\left(2\pi t\right) + \beta_4 \cos\left(2\pi t\right)$\\~\\
+$N$: nitrogen (or other response endpoint)\\
+$t$: time\\
+$Sal$: Salinity (or other flow-related variable)
+\end{center}
+\includegraphics<2>[width = \textwidth, page = 1]{fig/wrtds_pieces.pdf}
+\includegraphics<3>[width = \textwidth, page = 2]{fig/wrtds_pieces.pdf}
+\includegraphics<4>[width = \textwidth, page = 3]{fig/wrtds_pieces.pdf}
+\includegraphics<5>[width = \textwidth, page = 4]{fig/wrtds_pieces.pdf}
+\includegraphics<6>[width = \textwidth, page = 5]{fig/wrtds_pieces.pdf}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Tampa Bay trend analysis}
+{\small
+\emtxt{Points}: observed time series (black are weighted, grey is zero weight)\\
+\emtxt{Green point}: observation at the center of the regression\\
+\emtxt{Blue line}: Global model with weights specific to the window\\
+\emtxt{Red line}: Accumulated WRTDS model
+}
+\begin{center}
+\animategraphics[controls,width=\linewidth]{10}{fig/wrtds_pieces2}{}{} %frame rate is 12 per/sec
+\end{center}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Tampa Bay trend analysis}
+\centerline{RMSE fit for unweighted = 0.58, WRTDS = 0.36}
+\begin{center}
+\includegraphics[width = \textwidth]{fig/wrtds_perf.pdf}
+\end{center}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Tampa Bay trend analysis}
+Because the model is dynamic, we have parameters describing the relationship of chlorophyll with other factors specific to different time periods \\~\\
+\begin{columns}[T]
+\begin{column}{0.45\textwidth}
+\includegraphics[width = \textwidth]{fig/hill-1.pdf}
+\end{column}
+\begin{column}{0.45\textwidth}
+\begin{itemize}
+\item Early period (light blue) - point-sources
+\item Late period (dark blue) - non-point sources
+\item Chlorophyll shows increasing response to freshwater input in recent years
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Tampa Bay trend analysis}
+\onslide<+->
+\begin{figure}
+\centerline{\includegraphics[width = \textwidth]{fig/p8obs.pdf}}
+\caption{Observed nitrogen time series at P8 (SF Bay Delta RMP)}
+\end{figure}
+\onslide<+->
+\vspace{-0.35in}
+\begin{figure}
+\centerline{\includegraphics[width = \textwidth]{fig/p8prdnrm.pdf}}
+\caption{Annual predicted and flow-normalized nitrogen from WRTDS.}
+\end{figure}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Time series detiding}
+The `Odum' open-water method has been used for decades to estimate rates of ecosystem metabolism \scriptsize \cite{Odum56} \\~\\
+\normalsize
+\begin{center}
+$\frac{\delta DO}{\delta t} = P - R + D$
+\end{center}
+Metabolic rates provide a measure of productivity in a system - are estuaries sources or sinks of organic matter? \scriptsize \cite{Caffrey14}
+\normalsize \\~\\
+Applications to estuarine monitoring data have been somewhat successful - why?? 
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Time series detiding}
+The `Odum' method assumes DO represents biological processes...
+<<sapdo, cache = T, fig.height = 2, fig.width = 7, out.width = '0.95\\textwidth', eval = T, echo = F, family = 'serif'>>=
+######
+# SAPHD example
+case <- 'SAPDC'
+dat.rng<-as.Date(c('2012-02-01','2012-02-14')) 
+
+load('data/SAPDC_wtreg_12.RData')
+inst_subs <- get('SAPDC_wtreg_12')
+
+tzone <- attr(inst_subs$DateTimeStamp, 'tzone')
+
+inst_subs$Date <- as.Date(inst_subs$DateTimeStamp, tz = tzone)
+inst.rng <- inst_subs$Date<=dat.rng[2] & inst_subs$Date>=dat.rng[1]
+inst_subs <- inst_subs[inst.rng,]
+
+# category for plotting
+inst_subs$cats <- 'out'
+inst_subs$cats[inst_subs$Date > as.Date('2012-02-07')] <- 'in'
+
+# function for setting range on y axis
+rng.fun<-function(vec.in){
+  rngs<-range(vec.in,na.rm=T)
+  buffs<-0.07*abs(diff(rngs))
+  c(rngs[1]-buffs,rngs[2]+buffs)
+  }
+
+##
+# out of phase plots
+
+# DO plot
+to_plo <- met.day.fun(inst_subs, case)
+to_plo <- to_plo[to_plo$cats %in% 'out', ]
+names(to_plo)[names(to_plo) %in% 'variable'] <- 'solar'
+ggpoly1 <- poly.fun(to_plo$solar, to_plo, for_leg = T)
+ggpoly2 <- poly.fun(to_plo$solar, to_plo)
+
+ylab<-expression(paste('DO (mg ',L^-1,')'))
+p1 <- ggplot(to_plo, aes(x = DateTimeStamp)) + 
+  ggpoly1 +
+  geom_line(aes(y = DO_obs), colour = pal(5)[5]) +
+  coord_cartesian(ylim = rng.fun(to_plo$DO_obs)) +
+  scale_fill_manual(values='yellow',labels='Day') +
+  scale_y_continuous(ylab) +
+  theme_mine() +
+  theme(legend.position = 'none', axis.title.x = element_blank())
+print(p1)
+@
+<<saptide, cache = T, fig.height = 2, fig.width = 7, out.width = '0.95\\textwidth', eval = T, echo = F, family = 'serif'>>=
+######
+# SAPHD example
+
+# subsets by case. date range, window comb
+case <- 'SAPDC'
+dat.rng<-as.Date(c('2012-02-01','2012-02-14')) 
+
+load('data/SAPDC_wtreg_12.RData')
+inst_subs <- get('SAPDC_wtreg_12')
+
+tzone <- attr(inst_subs$DateTimeStamp, 'tzone')
+
+inst_subs$Date <- as.Date(inst_subs$DateTimeStamp, tz = tzone)
+inst.rng <- inst_subs$Date<=dat.rng[2] & inst_subs$Date>=dat.rng[1]
+inst_subs <- inst_subs[inst.rng,]
+
+# category for plotting
+inst_subs$cats <- 'out'
+inst_subs$cats[inst_subs$Date > as.Date('2012-02-07')] <- 'in'
+
+# function for setting range on y axis
+rng.fun<-function(vec.in){
+  rngs<-range(vec.in,na.rm=T)
+  buffs<-0.07*abs(diff(rngs))
+  c(rngs[1]-buffs,rngs[2]+buffs)
+  }
+
+##
+# out of phase plots
+
+# DO plot
+to_plo <- met.day.fun(inst_subs, case)
+to_plo <- to_plo[to_plo$cats %in% 'out', ]
+names(to_plo)[names(to_plo) %in% 'variable'] <- 'solar'
+ggpoly1 <- poly.fun(to_plo$solar, to_plo, for_leg = T)
+ggpoly2 <- poly.fun(to_plo$solar, to_plo, for_leg = T)
+
+# tide plot
+ylab<-expression(paste('Height (m)'))
+p2 <- ggplot(to_plo, aes(x = DateTimeStamp)) + 
+  ggpoly2 +
+  geom_line(aes(y = Depth), colour = pal(5)[5]) +
+  coord_cartesian(ylim = rng.fun(to_plo$Depth)) +
+  scale_fill_manual(values='yellow',labels='Day') +
+  theme_mine() + 
+  scale_y_continuous(ylab) +
+  theme(legend.position = 'none', axis.title.x = element_blank())
+print(p2)
+@
+\end{frame}
+
+<<dtd_ani, cache = T, eval = F, echo = F, results = 'hide'>>=
+
+# continuous data
+load('data/RKBMB_wtreg.RData')
+to_plo <- get('RKBMB_wtreg')
+tz <- attr(to_plo$DateTimeStamp, 'tzone')
+date_subs <- as.POSIXct(c('2011-05-23 0:0', '2011-05-30 0:0'), tz= tz)
+to_plo <- to_plo[to_plo$DateTimeStamp <= date_subs[2] & to_plo$DateTimeStamp >= date_subs[1], ]
+
+steps <- seq(1, nrow(to_plo), by = 2)
+to_plo <- to_plo[steps, ]
+
+#animations
+
+pdf('fig/detide_ani.pdf', height = 4.5, width = 9, family = 'serif')
+
+for(i in 1:nrow(to_plo)){
+    
+  cat(i, '\t')
+
+  rows <- seq(1, i)
+  ani_plo <- to_plo[rows, ]
+  
+  pt_plo <- ani_plo[rows[length(rows)], ]
+  
+  # DO 
+  do_plo <- melt(ani_plo, id.var = c('DateTimeStamp'), 
+    measure.var = c('DO_obs', 'DO_nrm'))
+  do_plo$variable <- factor(do_plo$variable, levels = c('DO_obs', 'DO_nrm'), 
+    labels = c('Observed', 'Detided'))
+  
+  p1 <- ggplot(ani_plo, aes(x = DateTimeStamp, y = Tide)) + 
+    geom_line(colour = pal(5)[3]) + 
+    geom_point(data = pt_plo, aes(x = DateTimeStamp, y = Tide), size = 3,
+      colour = pal(5)[3]) +
+    scale_y_continuous('Tidal height (m)', limits = c(0.2, 1.5)) +
+    scale_x_datetime(limits = date_subs) +
+    theme_mine() +
+    theme(axis.title.x = element_blank())
+  
+  pt_do_plo <- melt(pt_plo, id.var = c('DateTimeStamp'), 
+    measure.var = c('DO_obs', 'DO_nrm'))
+  pt_do_plo$variable <- factor(pt_do_plo$variable, levels = c('DO_obs', 'DO_nrm'), 
+    labels = c('Observed', 'Detided'))
+  
+  ylab<-expression(paste('DO (mg ',L^-1,')'))
+  p2 <- ggplot(do_plo, aes(x = DateTimeStamp, y = value, 
+      colour = variable)) + 
+    geom_line() +
+    geom_point(data = pt_do_plo, aes(x = DateTimeStamp), size = 3) +
+    scale_colour_manual('', values=pal(5)[c(4, 5)]) +
+    facet_wrap(~ variable, ncol = 1) +
+    scale_y_continuous(ylab, limits = c(1, 7)) +
+    scale_x_datetime(limits = date_subs) +
+    theme_mine() +
+    theme(legend.position = 'none', axis.title.x = element_blank())
+  
+  pA <- ggplotGrob(p1)
+  pB <- ggplotGrob(p2)
+  maxWidth = grid::unit.pmax(pA$widths[2:3], pB$widths[2:3])
+  pA$widths[2:3] <- as.list(maxWidth)
+  pB$widths[2:3] <- as.list(maxWidth)
+  
+  grid.arrange(pA, pB, ncol = 1, heights = c(1, 1.5))
+  
+}
+dev.off()
+
+# ani.options(qpdf = "C:/Users/mbeck/Desktop/qpdf-5.1.2-bin-mingw64/qpdf-5.1.2/bin/qpdf.exe")
+# qpdf("fig/detide_ani.pdf", output = "fig/detide_ani2.pdf")
+
+@
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Time series detiding}
+\begin{center}
+\animategraphics[controls,width=\linewidth]{25}{fig/detide_ani}{1}{169} %frame rate is 50 per/sec
+\end{center}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Time series detiding}
+DO time series and ecosystem metabolism {\footnotesize\cite{Beck15b}}
+\includegraphics[width = \textwidth]{fig/metex.pdf}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Additional WRTDS applications}
+Comparing WRTDS and GAMs for trend evaluation {\footnotesize \cite{Beck17}}
+\begin{columns}
+\begin{column}{0.38\textwidth}
+\includegraphics[width = \textwidth]{fig/patux_map.pdf}
+\end{column}
+\begin{column}{0.65\textwidth}
+\includegraphics[width = \textwidth]{fig/predann.pdf}
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Additional WRTDS applications}
+\centerline{\includegraphics[width = 0.75\textwidth]{fig/delt_map.pdf}}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Additional WRTDS applications}
+Better description of nutrient endpoints can change conclusions
+\centerline{\includegraphics[width = \textwidth]{fig/trndcomp1.pdf}}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The EPA experience}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\centerline{\includegraphics[width=0.3\linewidth]{fig/epa_logo.png}}
+\end{column}
+\begin{column}{0.5\textwidth}
+\emtxt{R-term post-doc, Dec. 2015}
+\end{column}
+\end{columns}
+\vspace{0.15in}
+\begin{itemize}
+\item<+-> You are a federal employee \\~\\
+\item<+-> You are not a permanent federal employee \\~\\
+\item<+-> You can't tell contractors what to do \\~\\
+\item<+-> You can hoard library books
+\end{itemize}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The EPA experience}
+\emtxt{4.02B} Nutrient Response and Recovery \\~\\
+\begin{itemize}
+\item Simulation modelling of NGOM hypoxia  \\~\\
+\end{itemize}
+\emtxt{4.02A} Microbial Indicators  \\~\\
+\begin{itemize}
+\item Data munging  \\~\\
+\end{itemize}
+\emtxt{3.01D} Watershed Sustainability  \\~\\
+\begin{itemize}
+\item Coral Biocriteria development 
+\end{itemize}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The EPA experience}
+
+\end{frame}
+
+%%%%%%
+\begin{frame}{The next chapter}{}
+
+\end{frame}
+
+%%%%%%
+\begin{frame}{Final thoughts}{}
+
+\end{frame}
+
+%%%%%%
+\begin{frame}{Sincere thank-yous}{}
 
 \end{frame}
 
