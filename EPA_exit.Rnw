@@ -68,6 +68,7 @@ library(lubridate)
 library(ggmap)
 library(ggsn)
 library(ggpolypath)
+library(grid)
 source('R/funcs.R')
 @
 
@@ -187,7 +188,7 @@ Minnesota, the land of 11,842 lakes
 %%%%%%
 \begin{frame}{Where did I come from?}{}
 \begin{itemize}
-\item Dataset of 332 vegetation surveys, courtesy of MNDNR \cite{Beck14a}
+\item Dataset of 332 vegetation surveys, courtesy of MNDNR {\footnotesize \cite{Beck13,Beck14a}}
 \item Environmental data describing lake characteristics and anthropogenic stressors
 \end{itemize}
 \begin{columns}
@@ -234,10 +235,10 @@ Minnesota, the land of 11,842 lakes
 \end{columns}
 \vspace{0.2in}
 \begin{itemize}
-\item<+-> ORISE is a mysterious entity \\~\\
-\item<+-> You are not an EPA employee \\~\\
-\item<+-> EPA employees cannot tell you what to do \\~\\
-\item<+-> You are not responsible for anything
+\item<2-> ORISE is a mysterious entity \\~\\
+\item<3-> You are not an EPA employee \\~\\
+\item<4-> EPA employees cannot tell you what to do \\~\\
+\item<5-> You are not responsible for anything
 \end{itemize}
 \end{frame}
 
@@ -405,7 +406,7 @@ p1 <- ggplot(to_plo, aes(x = DateTimeStamp)) +
   ggpoly1 +
   geom_line(aes(y = DO_obs), colour = pal(5)[5]) +
   coord_cartesian(ylim = rng.fun(to_plo$DO_obs)) +
-  scale_fill_manual(values='yellow',labels='Day') +
+  scale_fill_manual(values='orange',labels='Day') +
   scale_y_continuous(ylab) +
   theme_mine() +
   theme(legend.position = 'none', axis.title.x = element_blank())
@@ -455,7 +456,7 @@ p2 <- ggplot(to_plo, aes(x = DateTimeStamp)) +
   ggpoly2 +
   geom_line(aes(y = Depth), colour = pal(5)[5]) +
   coord_cartesian(ylim = rng.fun(to_plo$Depth)) +
-  scale_fill_manual(values='yellow',labels='Day') +
+  scale_fill_manual(values='orange',labels='Day') +
   theme_mine() + 
   scale_y_continuous(ylab) +
   theme(legend.position = 'none', axis.title.x = element_blank())
@@ -563,8 +564,23 @@ Comparing WRTDS and GAMs for trend evaluation {\footnotesize \cite{Beck17}}
 \end{frame}
 
 %%%%%%
-\begin{frame}{The ORISE experience}{Additional WRTDS applications}
+\begin{frame}{The ORISE experience}{Additional WRTDS applications - DIN changes in Delta}
 \centerline{\includegraphics[width = 0.75\textwidth]{fig/delt_map.pdf}}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Additional WRTDS applications - ammonium changes in Delta}
+\centerline{\includegraphics[width = 0.93\textwidth, page = 2]{fig/trndsperdin.pdf}}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Additional WRTDS applications - nitrite/nitrate changes in Delta}
+\centerline{\includegraphics[width = 0.93\textwidth, page = 2]{fig/trndspernh.pdf}}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Additional WRTDS applications}
+\centerline{\includegraphics[width = 0.93\textwidth, page = 2]{fig/trndsperno23.pdf}}
 \end{frame}
 
 %%%%%%
@@ -578,35 +594,35 @@ Better description of nutrient endpoints can change conclusions
 %%%%%%
 \begin{frame}{The EPA experience}{}
 \begin{columns}
-\begin{column}{0.5\textwidth}
-\centerline{\includegraphics[width=0.3\linewidth]{fig/epa_logo.png}}
+\begin{column}{0.3\textwidth}
+\centerline{\includegraphics[width=0.5\linewidth]{fig/epa_logo.png}}
 \end{column}
-\begin{column}{0.5\textwidth}
-\emtxt{R-term post-doc, Dec. 2015}
+\begin{column}{0.7\textwidth}
+\textbf{\textit{\Large {R-term post-doc, Dec. 2015}}}
 \end{column}
 \end{columns}
 \vspace{0.15in}
 \begin{itemize}
-\item<+-> You are a federal employee \\~\\
-\item<+-> You are not a permanent federal employee \\~\\
-\item<+-> You can't tell contractors what to do \\~\\
-\item<+-> You move out of cubeland
+\item<2-> You are a federal employee \\~\\
+\item<3-> You are not a permanent federal employee \\~\\
+\item<4-> You can't tell contractors what to do \\~\\
+\item<5-> You move out of cubeland
 \end{itemize}
 \end{frame}
 
 %%%%%%
 \begin{frame}{The EPA experience}{}
-\emtxt{4.02B} Nutrient Response and Recovery \\~\\
+\emtxt{3.01D} Watershed Sustainability \\~\\
 \begin{itemize}
-\item Simulation modelling of NGOM hypoxia  \\~\\
+\item Coral Biocriteria development \\~\\
 \end{itemize}
-\emtxt{4.02A} Microbial Indicators  \\~\\
+\emtxt{4.02A} Microbial Indicators \\~\\
 \begin{itemize}
 \item Data munging  \\~\\
 \end{itemize}
-\emtxt{3.01D} Watershed Sustainability  \\~\\
+\emtxt{4.02B} Nutrient Response and Recovery \\~\\
 \begin{itemize}
-\item Coral Biocriteria development 
+\item Simulation modelling of NGOM hypoxia
 \end{itemize}
 \end{frame}
 
@@ -772,7 +788,7 @@ p <- ggplot(toplo_all, aes(y = L1, x = Parameter, fill = Sensitivity)) +
     labels = parse(text = toplo_all$Parameter)
     ) + 
   scale_y_discrete('State variable', expand = c(0, 0)) +
-  scale_fill_distiller(palette = "Spectral", trans = 'log10',  na.value = 'grey95') +
+  scale_fill_distiller(palette = "GnBu", trans = 'log10',  na.value = 'grey95', direction = 1) +
   facet_grid(.~Category, scales = 'free_x', space = 'free') + 
   guides(fill = guide_colourbar(barheight = 0.25, barwidth = 5, label.theme = element_text(size = 6, angle = 0)))
 
@@ -780,11 +796,11 @@ pdf('fig/senstile.pdf', family = 'serif', height = 3.5, width = 7)
 p
 dev.off()
 @
+
 %%%%%%
 \begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
 \centerline{\includegraphics[width=\textwidth]{fig/senstile.pdf}}
 \end{frame}
-
 
 <<areachg, cache = T, eval = T, echo = F, results = 'hide', message = F>>=
 
@@ -916,7 +932,6 @@ p5 <- ggmap(map) +
   coord_equal() + 
   mytheme %+replace%
   theme(legend.position = 'none') +
-  ggtitle(label = NULL, subtitle = '(e) Estimated areal extents on August 28, default extent in grey') + 
   scalebar(location = 'bottomleft', y.min = 28.35, y.max = 28.8, x.min = -93.3, x.max = -92, 
     dist = 20, dd2km= TRUE, model='WGS84', st.dist=.1, st.size = 2, height = 0.08)
 
@@ -934,7 +949,7 @@ pB$widths[2:3] <- maxWidth
 pD$widths[2:3] <- maxWidth
 
 ylab <- expression(paste('Hypoxic area ( ', km^2, ' x 1000)'))
-pdf('fig/areachg1.pdf', family = 'serif', height = 6, width = 7)
+pdf('fig/areachg1.pdf', family = 'serif', height = 4, width = 7)
 grid.arrange(
   arrangeGrob(
     arrangeGrob(pA, pC, ncol = 2),
@@ -948,20 +963,52 @@ grid.arrange(
 dev.off()
 
 pdf('fig/areachg2.pdf', family = 'serif', height = 3, width = 7)
-pE
+grid.arrange(
+  arrangeGrob(
+    pleg, pE, ncol = 1, heights = c(0.1, 1)
+  )
+)
 dev.off()
-
-
 @
 
 %%%%%%
 \begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
-\centerline{\includegraphics[width=\textwidth]{fig/senstile.pdf}}
+\centerline{\emtxt{Estimated areal extents on August 28, default extent in grey}}
+\vspace{0.15in}
+\centerline{\includegraphics[width=\textwidth]{fig/areachg2.pdf}}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\centerline{\includegraphics[width=\textwidth]{fig/areachg1.pdf}}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\emtxt{Ongoing}\\~\\
+\begin{itemize}
+\item How do these analyses depend on interactions between variables? \\~\\
+\item How can this inform evaluation of structural or observational uncertainty? \\~\\
+\item Can we use this information to develop better understanding of hypoxia development? \\~\\
+\item Manuscript in revision, interactive GUI for FishTank
+\end{itemize}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\centerline{\includegraphics[width = 1.05\textwidth]{fig/fishtank_gui.png}}
 \end{frame}
 
 %%%%%%
 \begin{frame}{The next chapter}{}
-
+\begin{columns}[t]
+\begin{column}{0.5\textwidth}
+\includegraphics[width = \textwidth]{fig/pbeach.jpg}
+\end{column}
+\begin{column}{0.5\textwidth}
+\includegraphics[trim= 0cm 0cm 0cm 2.44cm, clip=true,width = \textwidth]{fig/hbeach.jpg}
+\end{column}
+\end{columns}
 \end{frame}
 
 %%%%%%

@@ -172,7 +172,7 @@ Minnesota, the land of 11,842 lakes
 %%%%%%
 \begin{frame}{Where did I come from?}{}
 \begin{itemize}
-\item Dataset of 332 vegetation surveys, courtesy of MNDNR \cite{Beck14a}
+\item Dataset of 332 vegetation surveys, courtesy of MNDNR {\footnotesize \cite{Beck13,Beck14a}}
 \item Environmental data describing lake characteristics and anthropogenic stressors
 \end{itemize}
 \begin{columns}
@@ -219,10 +219,10 @@ Minnesota, the land of 11,842 lakes
 \end{columns}
 \vspace{0.2in}
 \begin{itemize}
-\item<+-> ORISE is a mysterious entity \\~\\
-\item<+-> You are not an EPA employee \\~\\
-\item<+-> EPA employees cannot tell you what to do \\~\\
-\item<+-> You are not responsible for anything
+\item<2-> ORISE is a mysterious entity \\~\\
+\item<3-> You are not an EPA employee \\~\\
+\item<4-> EPA employees cannot tell you what to do \\~\\
+\item<5-> You are not responsible for anything
 \end{itemize}
 \end{frame}
 
@@ -396,8 +396,23 @@ Comparing WRTDS and GAMs for trend evaluation {\footnotesize \cite{Beck17}}
 \end{frame}
 
 %%%%%%
-\begin{frame}{The ORISE experience}{Additional WRTDS applications}
+\begin{frame}{The ORISE experience}{Additional WRTDS applications - DIN changes in Delta}
 \centerline{\includegraphics[width = 0.75\textwidth]{fig/delt_map.pdf}}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Additional WRTDS applications - ammonium changes in Delta}
+\centerline{\includegraphics[width = 0.93\textwidth, page = 2]{fig/trndsperdin.pdf}}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Additional WRTDS applications - nitrite/nitrate changes in Delta}
+\centerline{\includegraphics[width = 0.93\textwidth, page = 2]{fig/trndspernh.pdf}}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The ORISE experience}{Additional WRTDS applications}
+\centerline{\includegraphics[width = 0.93\textwidth, page = 2]{fig/trndsperno23.pdf}}
 \end{frame}
 
 %%%%%%
@@ -411,35 +426,35 @@ Better description of nutrient endpoints can change conclusions
 %%%%%%
 \begin{frame}{The EPA experience}{}
 \begin{columns}
-\begin{column}{0.5\textwidth}
-\centerline{\includegraphics[width=0.3\linewidth]{fig/epa_logo.png}}
+\begin{column}{0.3\textwidth}
+\centerline{\includegraphics[width=0.5\linewidth]{fig/epa_logo.png}}
 \end{column}
-\begin{column}{0.5\textwidth}
-\emtxt{R-term post-doc, Dec. 2015}
+\begin{column}{0.7\textwidth}
+\textbf{\textit{\Large {R-term post-doc, Dec. 2015}}}
 \end{column}
 \end{columns}
 \vspace{0.15in}
 \begin{itemize}
-\item<+-> You are a federal employee \\~\\
-\item<+-> You are not a permanent federal employee \\~\\
-\item<+-> You can't tell contractors what to do \\~\\
-\item<+-> You move out of cubeland
+\item<2-> You are a federal employee \\~\\
+\item<3-> You are not a permanent federal employee \\~\\
+\item<4-> You can't tell contractors what to do \\~\\
+\item<5-> You move out of cubeland
 \end{itemize}
 \end{frame}
 
 %%%%%%
 \begin{frame}{The EPA experience}{}
-\emtxt{4.02B} Nutrient Response and Recovery \\~\\
+\emtxt{3.01D} Watershed Sustainability \\~\\
 \begin{itemize}
-\item Simulation modelling of NGOM hypoxia  \\~\\
+\item Coral Biocriteria development \\~\\
 \end{itemize}
-\emtxt{4.02A} Microbial Indicators  \\~\\
+\emtxt{4.02A} Microbial Indicators \\~\\
 \begin{itemize}
 \item Data munging  \\~\\
 \end{itemize}
-\emtxt{3.01D} Watershed Sustainability  \\~\\
+\emtxt{4.02B} Nutrient Response and Recovery \\~\\
 \begin{itemize}
-\item Coral Biocriteria development 
+\item Simulation modelling of NGOM hypoxia
 \end{itemize}
 \end{frame}
 
@@ -551,41 +566,52 @@ L_j = \sum|S_{ij}|/n
 \end{frame}
 
 
+
 %%%%%%
 \begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
 \centerline{\includegraphics[width=\textwidth]{fig/senstile.pdf}}
 \end{frame}
 
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-
-
-{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in unit.pmax(pA\$widths[2:3], pB\$widths[2:3]): could not find function "{}unit.pmax"{}}}
-
-{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in eval(expr, envir, enclos): object 'maxWidth' not found}}
-
-{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in eval(expr, envir, enclos): object 'maxWidth' not found}}
-
-{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in eval(expr, envir, enclos): object 'maxWidth' not found}}
-
-{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in unit.pmax(pC\$widths[2:3], pD\$widths[2:3], pE\$widths[2:3]): could not find function "{}unit.pmax"{}}}
-
-{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in eval(expr, envir, enclos): object 'maxWidth' not found}}
-
-{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in eval(expr, envir, enclos): object 'maxWidth' not found}}
-
-{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in textGrob(ylab, rot = 90): could not find function "{}textGrob"{}}}\end{kframe}
-\end{knitrout}
 
 %%%%%%
 \begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
-\centerline{\includegraphics[width=\textwidth]{fig/senstile.pdf}}
+\centerline{\emtxt{Estimated areal extents on August 28, default extent in grey}}
+\vspace{0.15in}
+\centerline{\includegraphics[width=\textwidth]{fig/areachg2.pdf}}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\centerline{\includegraphics[width=\textwidth]{fig/areachg1.pdf}}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\emtxt{Ongoing}\\~\\
+\begin{itemize}
+\item How do these analyses depend on interactions between variables? \\~\\
+\item How can this inform evaluation of structural or observational uncertainty? \\~\\
+\item Can we use this information to develop better understanding of hypoxia development? \\~\\
+\item Manuscript in revision, interactive GUI for FishTank
+\end{itemize}
+\end{frame}
+
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery}
+\centerline{\includegraphics[width = 1.05\textwidth]{fig/fishtank_gui.png}}
 \end{frame}
 
 %%%%%%
 \begin{frame}{The next chapter}{}
-
+\begin{columns}[t]
+\begin{column}{0.5\textwidth}
+\includegraphics[width = \textwidth]{fig/pbeach.jpg}
+\end{column}
+\begin{column}{0.5\textwidth}
+\includegraphics[trim= 0cm 0cm 0cm 2.44cm, clip=true,width = \textwidth]{fig/hbeach.jpg}
+\end{column}
+\end{columns}
 \end{frame}
 
 %%%%%%
