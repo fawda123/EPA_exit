@@ -1,7 +1,7 @@
 \documentclass[serif]{beamer}
 \usetheme{Boadilla}
 \usepackage{graphicx}
-\usepackage[draft]{animate}
+\usepackage[final]{animate}
 \usepackage{breqn}
 \usepackage{xcolor}
 \usepackage{booktabs}
@@ -1000,6 +1000,101 @@ dev.off()
 \end{frame}
 
 %%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery - PB model}
+<<fig.height = 6, fig.width = 10>>=
+data(pb_grid)
+
+deps <- dplyr::select(pb_grid@data, L, depth) %>% 
+  rename(id = L) %>% 
+  mutate(id = as.character(id))
+toplo <- fortify(pb_grid, region = 'L') %>% 
+  left_join(deps, by = 'id')
+
+p <- ggplot(toplo) + 
+  aes(long, lat, group = group, fill = depth) + 
+  geom_polygon() +
+  geom_path(color="darkgrey") +
+  coord_equal() + 
+  scale_fill_distiller(palette = 'Spectral') +
+  theme_minimal() +
+  theme(legend.position = 'top', axis.title.x = element_blank(), axis.title.y = element_blank()) 
+p
+
+@
+\end{frame}
+
+
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery - PB model}
+<<fig.height = 6, fig.width = 10>>=
+data(pb_grid)
+data(qser_pts)
+
+deps <- dplyr::select(pb_grid@data, L, depth) %>% 
+  rename(id = L) %>% 
+  mutate(id = as.character(id))
+toplo <- fortify(pb_grid, region = 'L') %>% 
+  left_join(deps, by = 'id')
+
+pts <- qser_pts %>% 
+  data.frame %>% 
+  dplyr::select(coords.x1, coords.x2, descrip, Type)
+
+p <- ggplot() +
+  geom_path(data = toplo, color="darkgrey", aes(long, lat, group = group)) +
+  ggrepel::geom_text_repel(
+				data = pts, 
+				aes(x = coords.x1, y = coords.x2, label = descrip),
+				point.padding = grid::unit(0.4, "lines"), size = 3
+				) +
+  geom_point(data = pts, aes(x = coords.x1, y = coords.x2, colour= Type), size = 6, alpha = 0.8) +
+  coord_equal() + 
+  theme_minimal() + 
+  theme(legend.position = 'top', axis.title.x = element_blank(), axis.title.y = element_blank()) 
+p
+@
+\end{frame}
+
+
+%%%%%%
+\begin{frame}{The EPA experience}{\emtxt{4.02B} Nutrient Response and Recovery - PB model}
+<<fig.height = 6, fig.width = 10>>=
+data(pb_grid)
+data(field_pts)
+
+deps <- dplyr::select(pb_grid@data, L, depth) %>% 
+  rename(id = L) %>% 
+  mutate(id = as.character(id))
+toplo <- fortify(pb_grid, region = 'L') %>% 
+  left_join(deps, by = 'id')
+
+pts <- field_pts %>% 
+  data.frame %>% 
+  dplyr::select(coords.x1, coords.x2, descrip, name)
+
+p <- ggplot() +
+  geom_path(data = toplo, color="darkgrey", aes(long, lat, group = group)) +
+  ggrepel::geom_text_repel(
+				data = pts, 
+				aes(x = coords.x1, y = coords.x2, label = name),
+				point.padding = grid::unit(0.4, "lines"), size = 3
+				) +
+  geom_point(data = pts, aes(x = coords.x1, y = coords.x2, colour= descrip), size = 6, alpha = 0.8) +
+  coord_equal() + 
+  theme_minimal() + 
+  theme(
+    legend.position = 'top', 
+    legend.title = element_blank(), 
+    axis.title.x = element_blank(),
+    axis.title.y = element_blank()
+    ) 
+p
+@
+\end{frame}
+
+\section{The next chapter}
+
+%%%%%%
 \begin{frame}{The next chapter}{}
 {\Large \centerline{\underline{\emtxt{One beach destination to the next...}}}}
 \vspace{0.2in}
@@ -1104,13 +1199,167 @@ Research areas:
 \end{frame}
 
 %%%%%%
-\begin{frame}{Final thoughts}{}
+\begin{frame}[t]{The next chapter}{}
+\begin{columns}
+\begin{column}{0.3\textwidth}
+\centerline{\includegraphics[width = 0.8\textwidth]{fig/sccwrp.png}}
+\end{column}
+\begin{column}{0.7\textwidth}
+\emtxt{A joint powers authority that works to develop a scientific foundation for informed water quality management in Southern California}
+\end{column}
+\end{columns}
+\vspace{0.25in}
+\centerline{\fbox{\includegraphics[width = 0.5\textwidth]{fig/sccwrp_building.png}}}
+\end{frame}
 
+\section{Final thoughts/ramblind}
+
+%%%%%%
+\begin{frame}{Final thoughts}{}
+\onslide<+->
+\emtxt{The good news}: We are getting better at collecting information - standardized, automated, increased coverage, real-time/continuous \\~\\
+\emtxt{The bad news}: Our ability to use this information has not kept pace with availability! \\~\\
+\onslide<+->
+<<theo, fig.height = 3.25, fig.width = 5, out.width = '0.55\\textwidth'>>=
+par(mar = c(4, 4, 0.5, 0.5), family = 'serif')
+x <- seq(1,100)
+y1 <- x^2
+y2 <- 4000 + 10*x
+plot(x, y1, type = 'l', xlab = 'Time', ylab = 'Quantities', axes = F, col = pal(5)[4], lty = 2, lwd = 2)
+lines(x, y2, col = pal(5)[4], lty = 1, lwd = 2)
+axis(side = 1, c(1, 100), labels = F)
+axis(side = 2, c(1, 100^2), labels = F)
+legend('topleft', lty = c(2,1), lwd = c(2,2), legend= c('Data', 'Analysis tools'), col = c(pal(5)[4], pal(5)[4]), bty = 'n')
+@
+\end{frame}
+
+%%%%%%
+\begin{frame}[t]{Final thoughts}{}
+{\large \emtxt{Open Science for Synthesis: Gulf Research Program}}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+July 10 - July 28, 2017\\
+NCEAS, Santa Barbara, CA 
+\end{column}
+\begin{column}{0.5\textwidth}
+\hfill \includegraphics[width = \textwidth]{fig/nceas_full.png}
+\end{column}
+\end{columns}
+\vspace{0.1in}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\centerline{\fbox{\includegraphics[width = 0.85\textwidth]{fig/gom.jpg}}}
+\end{column}
+\begin{column}{0.5\textwidth}
+\centerline{\fbox{\includegraphics[width = 0.65\textwidth]{fig/ossgrp.jpg}}}
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%
+\begin{frame}[t]{Final thoughts}{}
+{\large \emtxt{Open Science for Synthesis: Gulf Research Program}}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+July 10 - July 28, 2017\\
+NCEAS, Santa Barbara, CA 
+\end{column}
+\begin{column}{0.5\textwidth}
+\hfill \includegraphics[width = \textwidth]{fig/nceas_full.png}
+\end{column}
+\end{columns}
+\vspace{0.1in}
+\vfill
+\centerline{\url{https://nceas.github.io/oss-2017/lessons.html}}
+\begin{itemize}
+\item Collaboration modes and technologies, virtual collaboration
+\item Data management, preservation, and sharing
+\item Data manipulation, integration, and exploration
+\item Scientific workflows and reproducible research
+\item Programming using agile and sustainable software practices
+\item Data analysis and modeling
+\item Communicating results to broad communities
+\end{itemize}
+\vfill
+\end{frame}
+
+%%%%%%
+\begin{frame}[t]{Final thoughts}{}
+{\large \emtxt{Open Science for Synthesis: Gulf Research Program}}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+July 10 - July 28, 2017\\
+NCEAS, Santa Barbara, CA 
+\end{column}
+\begin{column}{0.5\textwidth}
+\hfill \includegraphics[width = \textwidth]{fig/nceas_full.png}
+\end{column}
+\end{columns}
+\vfill
+\emtxt{Reproducible Science} is transparent, automated, archived (provenance), and shared. It's also about modularity - one task, one component of the workflow. 
+\vfill
+Some bare necessities: 
+\begin{itemize}
+\item Use the command line and learn to code
+\item Use version control
+\item Use community standards
+\item Use an archived data repository
+\end{itemize}
+\vfill
+\end{frame}
+
+%%%%%%
+\begin{frame}{Final thoughts}{}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{center}
+\centerline{\fbox{\includegraphics[width=0.75\textwidth]{fig/Sartre1.jpg}}}
+\end{center}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{quote}
+\normalsize
+Man[/Woman] is condemned to be free; because once thrown into the world, he[/she] is responsible for everything he[/she] does.\\~\\
+\vspace{0.05in}
+\hfill -- J. P. Sartre\\~\\
+\end{quote}
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%
+\begin{frame}{Sincere thank-yous}{}
+\hspace{2cm}
+\includegraphics[width = 0.2\textwidth]{fig/epa.png}
+\hspace{2cm}
+\fbox{\includegraphics[width = 0.3\textwidth]{fig/sabine.pdf}} \\~\\
+\scriptsize 
+<<results = 'asis', cache = F>>=
+thx <- c('James Hagy', 'Michael Murrell', 'Yongshan Wan', 'John Rogers', 'Rich Devereux', 'John Lehrter', 'Brandon Jarvis', 'Jessica Aukamp', 'Stephanie Friedman', 'Marilynn Hoglund', 'Rick Greene', 'Katelyn Houghton', 'David Beddick', 'Joe James', 'Diane Yates', 'Dragoslav Marcovich', 'Elizabeth George', 'Peggy Rogers', 'Jessica Lisa', 'Brad Blackwell', 'Chengfeng Le', 'Morgan Wilming', 'Deb Santavy', 'Deb Vivian', 'Sandy Raimando', 'Susan Yee', 'Christina Horstmann', 'Sehan Lee', 'Leah Oliver', 'Ally Duffy', 'John McCauley', 'Carl Litzinger', 'Tripp Boone', 'Alice Watts', 'Jeanne Scott', 'John Gazoo', 'Nancy Reeves', 'Mace Barron', 'Leah Oliver', 'Candice Lavelle', 'Kyle Buck', 'Justin Bousquin', 'Jim Harvey', 'Laura Enzor', 'Melissa Overton', 'Bernice Betts', 'Matt Harwell', 'Vic Camargo', 'Steven Jarrard', 'Brian Plummer', 'Paul Soderlind', 'Clay Peacher', 'Janet Nestlerode', 'Darrin Dantin', 'Ryan Boylan', 'Chloe Jackson', 'Elizabeth Paulukonis', 'Leah Sharpe', 'Jeff Hollister', 'Mike McManus', 'Marc Weber', 'Lisa Lowe', 'Ryan Heffernan', 'George Craven', 'Alex Almario', 'Bill Fisher', 'Bill Benson')
+thx %>% 
+  sample %>% 
+  paste(., collapse = ', ') %>% 
+  cat
+@
 \end{frame}
 
 %%%%%%
 \begin{frame}{Sincere thank-yous}{}
 
+\includegraphics[width = 0.2\textwidth]{fig/epa.png}
+\hfill
+\includegraphics[width = 0.2\textwidth]{fig/sccwrp.png}
+\hfill
+\includegraphics[width = 0.2\textwidth]{fig/sfei.png}
+\hfill
+\includegraphics[width = 0.2\textwidth]{fig/nerrs.jpg} \\~\\
+\includegraphics[width = 0.2\textwidth]{fig/umn.png}
+\hfill
+\includegraphics[width = 0.2\textwidth]{fig/disl.png}
+\hfill
+\includegraphics[width = 0.2\textwidth]{fig/umces.png}
+\hfill
+\includegraphics[width = 0.2\textwidth]{fig/nceas.png}
 \end{frame}
 
 %%%%%%

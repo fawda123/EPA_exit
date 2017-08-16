@@ -3,4 +3,6 @@
 \beamer@sectionintoc {2}{Where did I come from?}{9}{0}{2}
 \beamer@sectionintoc {3}{The ORISE experience}{11}{0}{3}
 \beamer@sectionintoc {4}{The EPA experience}{43}{0}{4}
-\beamer@sectionintoc {5}{References}{67}{0}{5}
+\beamer@sectionintoc {5}{The next chapter}{64}{0}{5}
+\beamer@sectionintoc {6}{Final thoughts/ramblind}{69}{0}{6}
+\beamer@sectionintoc {7}{References}{77}{0}{7}
