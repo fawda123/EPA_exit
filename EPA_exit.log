@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.8.29)  28 AUG 2017 19:21
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.8.29)  29 AUG 2017 08:53
 entering extended mode
 **EPA_exit.tex
 (M:\presentations\EPA_exit\EPA_exit.tex
@@ -1476,7 +1476,7 @@ f>] <fig/Sartre1.jpg, id=92, 200.75pt x 193.72375pt>
 File: fig/Sartre1.jpg Graphic file (type jpg)
  <use fig/Sartre1.jpg>
 Package pdftex.def Info: fig/Sartre1.jpg used on input line 132.
-(pdftex.def)             Requested size: 136.91862pt x 132.13536pt.
+(pdftex.def)             Requested size: 128.36073pt x 123.87634pt.
 LaTeX Font Info:    Try loading font information for U+msa on input line 132.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
@@ -2257,208 +2257,117 @@ Package pdftex.def Info: fig/back_tmp.pdf used on input line 383.
  [36
 
  <M:/presentations/EPA_exit/fig/metex.pdf>]
-<fig/patux_map.pdf, id=2613, 361.35pt x 505.89pt>
-File: fig/patux_map.pdf Graphic file (type pdf)
- <use fig/patux_map.pdf>
-Package pdftex.def Info: fig/patux_map.pdf used on input line 396.
-(pdftex.def)             Requested size: 130.07388pt x 182.10481pt.
-
-<fig/predann.pdf, id=2614, 505.89pt x 433.62pt>
-File: fig/predann.pdf Graphic file (type pdf)
- <use fig/predann.pdf>
-Package pdftex.def Info: fig/predann.pdf used on input line 396.
-(pdftex.def)             Requested size: 222.48985pt x 190.70737pt.
-
-Overfull \vbox (3.2159pt too high) detected at line 396
- []
-
-File: fig/back_tmp.pdf Graphic file (type pdf)
-<use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 396.
-(pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [37
-
- <M:/presentations/EPA_exit/fig/patux_map.pdf> <M:/presentations/EPA_exit/fig/p
-redann.pdf>]
-
-pdfTeX warning: pdflatex.exe (file M:/presentations/EPA_exit/fig/delt_map.pdf):
- PDF inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<fig/delt_map.pdf, id=2641, 657.96996pt x 527.71329pt>
-File: fig/delt_map.pdf Graphic file (type pdf)
- <use fig/delt_map.pdf>
-Package pdftex.def Info: fig/delt_map.pdf used on input line 401.
-(pdftex.def)             Requested size: 256.72147pt x 205.90398pt.
-File: fig/back_tmp.pdf Graphic file (type pdf)
-
-<use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 401.
-(pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [38
-
- <M:/presentations/EPA_exit/fig/delt_map.pdf>]
-<fig/trndsperdin.pdf, id=2699, page=2, 650.43pt x 433.62pt>
-File: fig/trndsperdin.pdf Graphic file (type pdf)
-
-<use fig/trndsperdin.pdf, page 2>
-Package pdftex.def Info: fig/trndsperdin.pdf, page2 used on input line 406.
-(pdftex.def)             Requested size: 318.33212pt x 212.22423pt.
-File: fig/back_tmp.pdf Graphic file (type pdf)
- <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 406.
-(pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [39
-
- <M:/presentations/EPA_exit/fig/trndsperdin.pdf>]
-<fig/trndspernh.pdf, id=2717, page=2, 650.43pt x 433.62pt>
-File: fig/trndspernh.pdf Graphic file (type pdf)
-
-<use fig/trndspernh.pdf, page 2>
-Package pdftex.def Info: fig/trndspernh.pdf, page2 used on input line 411.
-(pdftex.def)             Requested size: 318.33212pt x 212.22423pt.
-File: fig/back_tmp.pdf Graphic file (type pdf)
- <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 411.
-(pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [40
-
- <M:/presentations/EPA_exit/fig/trndspernh.pdf>]
-<fig/trndsperno23.pdf, id=2735, page=2, 650.43pt x 433.62pt>
-File: fig/trndsperno23.pdf Graphic file (type pdf)
-
-<use fig/trndsperno23.pdf, page 2>
-Package pdftex.def Info: fig/trndsperno23.pdf, page2 used on input line 416.
-(pdftex.def)             Requested size: 318.33212pt x 212.22423pt.
-File: fig/back_tmp.pdf Graphic file (type pdf)
- <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 416.
-(pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [41
-
- <M:/presentations/EPA_exit/fig/trndsperno23.pdf>]
-<fig/trndcomp1.pdf, id=2753, 650.43pt x 361.35pt>
-File: fig/trndcomp1.pdf Graphic file (type pdf)
- <use fig/trndcomp1.pdf>
-Package pdftex.def Info: fig/trndcomp1.pdf used on input line 422.
-(pdftex.def)             Requested size: 342.2953pt x 190.16924pt.
-File: fig/back_tmp.pdf Graphic file (type pdf)
-
-<use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 422.
-(pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [42
-
- <M:/presentations/EPA_exit/fig/trndcomp1.pdf>]
-<fig/epa_logo.png, id=2771, 195.6108pt x 196.0926pt>
+<fig/epa_logo.png, id=2612, 195.6108pt x 196.0926pt>
 File: fig/epa_logo.png Graphic file (type png)
  <use fig/epa_logo.png>
-Package pdftex.def Info: fig/epa_logo.png used on input line 443.
+Package pdftex.def Info: fig/epa_logo.png used on input line 404.
 (pdftex.def)             Requested size: 51.3448pt x 51.47058pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
 
 <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 443.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 404.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [43
+ [37
 
  <M:/presentations/EPA_exit/fig/epa_logo.png>]
 File: fig/epa_logo.png Graphic file (type png)
 
 <use fig/epa_logo.png>
-Package pdftex.def Info: fig/epa_logo.png used on input line 443.
+Package pdftex.def Info: fig/epa_logo.png used on input line 404.
 (pdftex.def)             Requested size: 51.3448pt x 51.47058pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
  <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 443.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 404.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [44
+ [38
 
 ]
 File: fig/epa_logo.png Graphic file (type png)
  <use fig/epa_logo.png>
-Package pdftex.def Info: fig/epa_logo.png used on input line 443.
+Package pdftex.def Info: fig/epa_logo.png used on input line 404.
 (pdftex.def)             Requested size: 51.3448pt x 51.47058pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
 
 <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 443.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 404.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [45
+ [39
 
 ]
 File: fig/epa_logo.png Graphic file (type png)
  <use fig/epa_logo.png>
-Package pdftex.def Info: fig/epa_logo.png used on input line 443.
+Package pdftex.def Info: fig/epa_logo.png used on input line 404.
 (pdftex.def)             Requested size: 51.3448pt x 51.47058pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
  <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 443.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 404.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
 
-[46
+[40
 
 ]
 File: fig/epa_logo.png Graphic file (type png)
  <use fig/epa_logo.png>
-Package pdftex.def Info: fig/epa_logo.png used on input line 443.
+Package pdftex.def Info: fig/epa_logo.png used on input line 404.
 (pdftex.def)             Requested size: 51.3448pt x 51.47058pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
  <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 443.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 404.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [47
+ [41
 
 ]
 File: fig/back_tmp.pdf Graphic file (type pdf)
  <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 459.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 420.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
 
-[48
+[42
 
-] <fig/shelf.png, id=2811, 406.51875pt x 284.56313pt>
+] <fig/shelf.png, id=2652, 406.51875pt x 284.56313pt>
 File: fig/shelf.png Graphic file (type png)
  <use fig/shelf.png>
-Package pdftex.def Info: fig/shelf.png used on input line 466.
+Package pdftex.def Info: fig/shelf.png used on input line 427.
 (pdftex.def)             Requested size: 222.48985pt x 155.74165pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
 
 <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 466.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 427.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [49
+ [43
 
  <M:/presentations/EPA_exit/fig/shelf.png>]
-<fig/CGEM.pdf, id=2822, 722.7pt x 542.025pt>
+<fig/CGEM.pdf, id=2663, 722.7pt x 542.025pt>
 File: fig/CGEM.pdf Graphic file (type pdf)
  <use fig/CGEM.pdf>
-Package pdftex.def Info: fig/CGEM.pdf used on input line 472.
+Package pdftex.def Info: fig/CGEM.pdf used on input line 433.
 (pdftex.def)             Requested size: 290.9531pt x 195.30275pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
 
 <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 472.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 433.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [50
+ [44
 
  <M:/presentations/EPA_exit/fig/CGEM.pdf>]
-<fig/CGEM-0dLogo-ST.jpg, id=2870, 252.945pt x 144.54pt>
+<fig/CGEM-0dLogo-ST.jpg, id=2711, 252.945pt x 144.54pt>
 File: fig/CGEM-0dLogo-ST.jpg Graphic file (type jpg)
 
 <use fig/CGEM-0dLogo-ST.jpg>
-Package pdftex.def Info: fig/CGEM-0dLogo-ST.jpg used on input line 490.
+Package pdftex.def Info: fig/CGEM-0dLogo-ST.jpg used on input line 451.
 (pdftex.def)             Requested size: 102.68962pt x 58.67952pt.
 
-<fig/fishmod.pdf, id=2872, 612.51859pt x 273.67847pt>
+<fig/fishmod.pdf, id=2713, 612.51859pt x 273.67847pt>
 File: fig/fishmod.pdf Graphic file (type pdf)
  <use fig/fishmod.pdf>
-Package pdftex.def Info: fig/fishmod.pdf used on input line 490.
+Package pdftex.def Info: fig/fishmod.pdf used on input line 451.
 (pdftex.def)             Requested size: 290.9531pt x 130.00278pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
 
 <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 490.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 451.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [51
+ [45
 
  <M:/presentations/EPA_exit/fig/CGEM-0dLogo-ST.jpg> <M:/presentations/EPA_exit/
 fig/fishmod.pdf
@@ -2468,400 +2377,381 @@ PDF inclusion: multiple pdfs with page group included in a single page
 >]
 File: fig/back_tmp.pdf Graphic file (type pdf)
  <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 498.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 459.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [52
+ [46
 
 ]
 File: fig/back_tmp.pdf Graphic file (type pdf)
  <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 508.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 468.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [53
+ [47
 
 ]
-File: fig/back_tmp.pdf Graphic file (type pdf)
-
-<use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 517.
-(pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [54
-
-]
-<fig/unnamed-chunk-2-1.pdf, id=2929, 433.62pt x 289.08pt>
+<fig/unnamed-chunk-2-1.pdf, id=2764, 433.62pt x 289.08pt>
 File: fig/unnamed-chunk-2-1.pdf Graphic file (type pdf)
 
 <use fig/unnamed-chunk-2-1.pdf>
-Package pdftex.def Info: fig/unnamed-chunk-2-1.pdf used on input line 566.
+Package pdftex.def Info: fig/unnamed-chunk-2-1.pdf used on input line 517.
 (pdftex.def)             Requested size: 171.14764pt x 114.09932pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
  <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 566.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 517.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [55
+ [48
 
  <M:/presentations/EPA_exit/fig/unnamed-chunk-2-1.pdf>]
-<fig/senstile.pdf, id=2947, 505.89pt x 252.945pt>
+<fig/senstile.pdf, id=2781, 505.89pt x 252.945pt>
 File: fig/senstile.pdf Graphic file (type pdf)
  <use fig/senstile.pdf>
-Package pdftex.def Info: fig/senstile.pdf used on input line 573.
+Package pdftex.def Info: fig/senstile.pdf used on input line 524.
 (pdftex.def)             Requested size: 342.2953pt x 171.1512pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
 
 <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 573.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 524.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [56
+ [49
 
  <M:/presentations/EPA_exit/fig/senstile.pdf>]
-<fig/areachg2.pdf, id=2962, 505.89pt x 216.81pt>
+<fig/areachg2.pdf, id=2797, 505.89pt x 216.81pt>
 File: fig/areachg2.pdf Graphic file (type pdf)
  <use fig/areachg2.pdf>
-Package pdftex.def Info: fig/areachg2.pdf used on input line 582.
+Package pdftex.def Info: fig/areachg2.pdf used on input line 533.
 (pdftex.def)             Requested size: 342.2953pt x 146.70102pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
 
 <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 582.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 533.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [57
+ [50
 
  <M:/presentations/EPA_exit/fig/areachg2.pdf>]
-<fig/areachg1.pdf, id=2981, 505.89pt x 289.08pt>
+<fig/areachg1.pdf, id=2816, 505.89pt x 289.08pt>
 File: fig/areachg1.pdf Graphic file (type pdf)
  <use fig/areachg1.pdf>
-Package pdftex.def Info: fig/areachg1.pdf used on input line 587.
+Package pdftex.def Info: fig/areachg1.pdf used on input line 538.
 (pdftex.def)             Requested size: 342.2953pt x 195.60136pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
 
 <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 587.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 538.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [58
+ [51
 
  <M:/presentations/EPA_exit/fig/areachg1.pdf>]
 File: fig/back_tmp.pdf Graphic file (type pdf)
 
 <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 598.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 549.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [59
+ [52
 
 ]
-<fig/fishtank_gui.png, id=3001, 948.54375pt x 484.81125pt>
+<fig/fishtank_gui.png, id=2836, 948.54375pt x 484.81125pt>
 File: fig/fishtank_gui.png Graphic file (type png)
 
 <use fig/fishtank_gui.png>
-Package pdftex.def Info: fig/fishtank_gui.png used on input line 603.
+Package pdftex.def Info: fig/fishtank_gui.png used on input line 554.
 (pdftex.def)             Requested size: 359.4111pt x 183.69756pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
  <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 603.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 554.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [60
+ [53
 
  <M:/presentations/EPA_exit/fig/fishtank_gui.png>]
-<fig/unnamed-chunk-4-1.pdf, id=3009, 722.7pt x 433.62pt>
+<fig/unnamed-chunk-4-1.pdf, id=2844, 722.7pt x 433.62pt>
 File: fig/unnamed-chunk-4-1.pdf Graphic file (type pdf)
 
 <use fig/unnamed-chunk-4-1.pdf>
-Package pdftex.def Info: fig/unnamed-chunk-4-1.pdf used on input line 615.
+Package pdftex.def Info: fig/unnamed-chunk-4-1.pdf used on input line 566.
 (pdftex.def)             Requested size: 342.2953pt x 205.37614pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
  <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 615.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 566.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [61
+ [54
 
  <M:/presentations/EPA_exit/fig/unnamed-chunk-4-1.pdf>]
-<fig/unnamed-chunk-5-1.pdf, id=3023, 722.7pt x 433.62pt>
+<fig/unnamed-chunk-5-1.pdf, id=2857, 722.7pt x 433.62pt>
 File: fig/unnamed-chunk-5-1.pdf Graphic file (type pdf)
 
 <use fig/unnamed-chunk-5-1.pdf>
-Package pdftex.def Info: fig/unnamed-chunk-5-1.pdf used on input line 628.
+Package pdftex.def Info: fig/unnamed-chunk-5-1.pdf used on input line 579.
 (pdftex.def)             Requested size: 342.2953pt x 205.37614pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
  <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 628.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 579.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [62
+ [55
 
  <M:/presentations/EPA_exit/fig/unnamed-chunk-5-1.pdf>]
-<fig/unnamed-chunk-6-1.pdf, id=3038, 722.7pt x 433.62pt>
+<fig/unnamed-chunk-6-1.pdf, id=2873, 722.7pt x 433.62pt>
 File: fig/unnamed-chunk-6-1.pdf Graphic file (type pdf)
 
 <use fig/unnamed-chunk-6-1.pdf>
-Package pdftex.def Info: fig/unnamed-chunk-6-1.pdf used on input line 641.
+Package pdftex.def Info: fig/unnamed-chunk-6-1.pdf used on input line 592.
 (pdftex.def)             Requested size: 342.2953pt x 205.37614pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
  <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 641.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 592.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [63
+ [56
 
  <M:/presentations/EPA_exit/fig/unnamed-chunk-6-1.pdf>]
-<fig/pbeach.jpg, id=3053, 650.43pt x 351.3125pt>
+<fig/pbeach.jpg, id=2888, 650.43pt x 351.3125pt>
 File: fig/pbeach.jpg Graphic file (type jpg)
  <use fig/pbeach.jpg>
-Package pdftex.def Info: fig/pbeach.jpg used on input line 659.
+Package pdftex.def Info: fig/pbeach.jpg used on input line 610.
 (pdftex.def)             Requested size: 171.14764pt x 96.66751pt.
 
-<fig/hbeach.jpg, id=3055, 552.0625pt x 367.3725pt>
+<fig/hbeach.jpg, id=2890, 552.0625pt x 367.3725pt>
 File: fig/hbeach.jpg Graphic file (type jpg)
  <use fig/hbeach.jpg>
-Package pdftex.def Info: fig/hbeach.jpg used on input line 659.
+Package pdftex.def Info: fig/hbeach.jpg used on input line 610.
 (pdftex.def)             Requested size: 171.14764pt x 97.3865pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
 
 <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 659.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 610.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [64
+ [57
 
  <M:/presentations/EPA_exit/fig/pbeach.jpg> <M:/presentations/EPA_exit/fig/hbea
-ch.jpg>] <fig/car.png, id=3066, 160.6pt x 160.6pt>
+ch.jpg>] <fig/car.png, id=2901, 160.6pt x 160.6pt>
 File: fig/car.png Graphic file (type png)
 
 <use fig/car.png>
-Package pdftex.def Info: fig/car.png used on input line 675.
+Package pdftex.def Info: fig/car.png used on input line 626.
 (pdftex.def)             Requested size: 17.1158pt x 17.11467pt.
- <fig/pbtraffic.jpg, id=3067, 536.0025pt x 402.50375pt>
+ <fig/pbtraffic.jpg, id=2902, 536.0025pt x 402.50375pt>
 File: fig/pbtraffic.jpg Graphic file (type jpg)
 
 <use fig/pbtraffic.jpg>
-Package pdftex.def Info: fig/pbtraffic.jpg used on input line 675.
+Package pdftex.def Info: fig/pbtraffic.jpg used on input line 626.
 (pdftex.def)             Requested size: 171.14764pt x 128.51517pt.
 File: fig/car.png Graphic file (type png)
  <use fig/car.png>
-Package pdftex.def Info: fig/car.png used on input line 675.
+Package pdftex.def Info: fig/car.png used on input line 626.
 (pdftex.def)             Requested size: 17.1158pt x 17.11467pt.
 File: fig/car.png Graphic file (type png)
  <use fig/car.png>
-Package pdftex.def Info: fig/car.png used on input line 675.
+Package pdftex.def Info: fig/car.png used on input line 626.
 (pdftex.def)             Requested size: 17.1158pt x 17.11467pt.
 File: fig/car.png Graphic file (type png)
  <use fig/car.png>
-Package pdftex.def Info: fig/car.png used on input line 675.
+Package pdftex.def Info: fig/car.png used on input line 626.
 (pdftex.def)             Requested size: 17.1158pt x 17.11467pt.
 File: fig/car.png Graphic file (type png)
 
 <use fig/car.png>
-Package pdftex.def Info: fig/car.png used on input line 675.
+Package pdftex.def Info: fig/car.png used on input line 626.
 (pdftex.def)             Requested size: 17.1158pt x 17.11467pt.
 File: fig/car.png Graphic file (type png)
  <use fig/car.png>
-Package pdftex.def Info: fig/car.png used on input line 675.
+Package pdftex.def Info: fig/car.png used on input line 626.
 (pdftex.def)             Requested size: 17.1158pt x 17.11467pt.
 
-<fig/latraffic.jpg, id=3068, 476.78125pt x 396.48125pt>
+<fig/latraffic.jpg, id=2903, 476.78125pt x 396.48125pt>
 File: fig/latraffic.jpg Graphic file (type jpg)
 
 <use fig/latraffic.jpg>
-Package pdftex.def Info: fig/latraffic.jpg used on input line 675.
+Package pdftex.def Info: fig/latraffic.jpg used on input line 626.
 (pdftex.def)             Requested size: 171.14764pt x 128.53351pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
  <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 675.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 626.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [65
+ [58
 
  <M:/presentations/EPA_exit/fig/latraffic.jpg> <M:/presentations/EPA_exit/fig/c
-ar.png> <M:/presentations/EPA_exit/fig/pbtraffic.jpg>] <fig/sccwrp.png, id=3078
+ar.png> <M:/presentations/EPA_exit/fig/pbtraffic.jpg>] <fig/sccwrp.png, id=2913
 , 175.65625pt x 120.45pt>
 File: fig/sccwrp.png Graphic file (type png)
 
 <use fig/sccwrp.png>
-Package pdftex.def Info: fig/sccwrp.png used on input line 702.
+Package pdftex.def Info: fig/sccwrp.png used on input line 653.
 (pdftex.def)             Requested size: 82.15201pt x 56.33397pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
  <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 702.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 653.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [66
+ [59
 
  <M:/presentations/EPA_exit/fig/sccwrp.png>]
 File: fig/sccwrp.png Graphic file (type png)
  <use fig/sccwrp.png>
-Package pdftex.def Info: fig/sccwrp.png used on input line 747.
+Package pdftex.def Info: fig/sccwrp.png used on input line 698.
 (pdftex.def)             Requested size: 82.15201pt x 56.33397pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
  <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 747.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 698.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [67
+ [60
 
 ]
 File: fig/sccwrp.png Graphic file (type png)
 
 <use fig/sccwrp.png>
-Package pdftex.def Info: fig/sccwrp.png used on input line 761.
+Package pdftex.def Info: fig/sccwrp.png used on input line 712.
 (pdftex.def)             Requested size: 82.15201pt x 56.33397pt.
 
-<fig/sccwrp_building.png, id=3093, 202.84184pt x 145.75462pt>
+<fig/sccwrp_building.png, id=2927, 202.84184pt x 145.75462pt>
 File: fig/sccwrp_building.png Graphic file (type png)
 
 <use fig/sccwrp_building.png>
-Package pdftex.def Info: fig/sccwrp_building.png used on input line 761.
+Package pdftex.def Info: fig/sccwrp_building.png used on input line 712.
 (pdftex.def)             Requested size: 171.14764pt x 122.98682pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
  <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 761.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 712.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [68
+ [61
 
  <M:/presentations/EPA_exit/fig/sccwrp_building.png>]
-<fig/theo-1.pdf, id=3101, 361.35pt x 234.8775pt>
+<fig/theo-1.pdf, id=2936, 361.35pt x 234.8775pt>
 File: fig/theo-1.pdf Graphic file (type pdf)
  <use fig/theo-1.pdf>
-Package pdftex.def Info: fig/theo-1.pdf used on input line 779.
+Package pdftex.def Info: fig/theo-1.pdf used on input line 730.
 (pdftex.def)             Requested size: 188.26346pt x 122.36995pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
 
 <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 779.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 730.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [69
+ [62
 
  <M:/presentations/EPA_exit/fig/theo-1.pdf>]
 File: fig/theo-1.pdf Graphic file (type pdf)
 
 <use fig/theo-1.pdf>
-Package pdftex.def Info: fig/theo-1.pdf used on input line 779.
+Package pdftex.def Info: fig/theo-1.pdf used on input line 730.
 (pdftex.def)             Requested size: 188.26346pt x 122.36995pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
  <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 779.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 730.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [70
+ [63
 
 ]
-<fig/nceas_full.png, id=3119, 643.40375pt x 129.48375pt>
+<fig/nceas_full.png, id=2954, 643.40375pt x 129.48375pt>
 File: fig/nceas_full.png Graphic file (type png)
 
 <use fig/nceas_full.png>
-Package pdftex.def Info: fig/nceas_full.png used on input line 802.
+Package pdftex.def Info: fig/nceas_full.png used on input line 753.
 (pdftex.def)             Requested size: 171.14764pt x 34.44342pt.
- <fig/gom.jpg, id=3120, 2810.5pt x 2007.5pt>
+ <fig/gom.jpg, id=2955, 2810.5pt x 2007.5pt>
 File: fig/gom.jpg Graphic file (type jpg)
 
 <use fig/gom.jpg>
-Package pdftex.def Info: fig/gom.jpg used on input line 802.
+Package pdftex.def Info: fig/gom.jpg used on input line 753.
 (pdftex.def)             Requested size: 145.47653pt x 103.90355pt.
- <fig/ossgrp.jpg, id=3121, 308.352pt x 411.136pt>
+ <fig/ossgrp.jpg, id=2956, 308.352pt x 411.136pt>
 File: fig/ossgrp.jpg Graphic file (type jpg)
 
 <use fig/ossgrp.jpg>
-Package pdftex.def Info: fig/ossgrp.jpg used on input line 802.
+Package pdftex.def Info: fig/ossgrp.jpg used on input line 753.
 (pdftex.def)             Requested size: 111.24492pt x 148.32878pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
  <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 802.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 753.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [71
+ [64
 
  <M:/presentations/EPA_exit/fig/nceas_full.png> <M:/presentations/EPA_exit/fig/
 gom.jpg> <M:/presentations/EPA_exit/fig/ossgrp.jpg>]
 File: fig/nceas_full.png Graphic file (type png)
  <use fig/nceas_full.png>
-Package pdftex.def Info: fig/nceas_full.png used on input line 829.
+Package pdftex.def Info: fig/nceas_full.png used on input line 780.
 (pdftex.def)             Requested size: 171.14764pt x 34.44342pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
  <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 829.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 780.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [72
+ [65
 
 ]
 File: fig/nceas_full.png Graphic file (type png)
 
 <use fig/nceas_full.png>
-Package pdftex.def Info: fig/nceas_full.png used on input line 854.
+Package pdftex.def Info: fig/nceas_full.png used on input line 805.
 (pdftex.def)             Requested size: 171.14764pt x 34.44342pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
  <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 854.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 805.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [73
+ [66
 
 ]
-File: fig/Sartre1.jpg Graphic file (type jpg)
- <use fig/Sartre1.jpg>
-Package pdftex.def Info: fig/Sartre1.jpg used on input line 873.
-(pdftex.def)             Requested size: 128.36073pt x 123.87634pt.
-File: fig/back_tmp.pdf Graphic file (type pdf)
-
-<use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 873.
-(pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [74
-
-] <fig/epa.png, id=3151, 195.6108pt x 196.0926pt>
+<fig/epa.png, id=2978, 195.6108pt x 196.0926pt>
 File: fig/epa.png Graphic file (type png)
-
-<use fig/epa.png>
-Package pdftex.def Info: fig/epa.png used on input line 883.
+ <use fig/epa.png>
+Package pdftex.def Info: fig/epa.png used on input line 815.
 (pdftex.def)             Requested size: 68.45801pt x 68.62445pt.
 File: fig/sabine.pdf Graphic file (type pdf)
- <use fig/sabine.pdf>
-Package pdftex.def Info: fig/sabine.pdf used on input line 883.
+
+<use fig/sabine.pdf>
+Package pdftex.def Info: fig/sabine.pdf used on input line 815.
 (pdftex.def)             Requested size: 102.68962pt x 61.64983pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
  <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 883.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 815.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [75
+ [67
 
  <M:/presentations/EPA_exit/fig/epa.png>]
 File: fig/epa.png Graphic file (type png)
  <use fig/epa.png>
-Package pdftex.def Info: fig/epa.png used on input line 902.
+Package pdftex.def Info: fig/epa.png used on input line 834.
 (pdftex.def)             Requested size: 68.45801pt x 68.62445pt.
 File: fig/sccwrp.png Graphic file (type png)
  <use fig/sccwrp.png>
-Package pdftex.def Info: fig/sccwrp.png used on input line 902.
+Package pdftex.def Info: fig/sccwrp.png used on input line 834.
 (pdftex.def)             Requested size: 68.45801pt x 46.94406pt.
 
-<fig/sfei.png, id=3159, 752.8125pt x 752.8125pt>
+<fig/sfei.png, id=2987, 752.8125pt x 752.8125pt>
 File: fig/sfei.png Graphic file (type png)
  <use fig/sfei.png>
-Package pdftex.def Info: fig/sfei.png used on input line 902.
+Package pdftex.def Info: fig/sfei.png used on input line 834.
 (pdftex.def)             Requested size: 68.45801pt x 68.4509pt.
 
-<fig/nerrs.jpg, id=3160, 289.08pt x 146.949pt>
+<fig/nerrs.jpg, id=2988, 289.08pt x 146.949pt>
 File: fig/nerrs.jpg Graphic file (type jpg)
  <use fig/nerrs.jpg>
-Package pdftex.def Info: fig/nerrs.jpg used on input line 902.
+Package pdftex.def Info: fig/nerrs.jpg used on input line 834.
 (pdftex.def)             Requested size: 68.45801pt x 34.79759pt.
 
-<fig/umn.png, id=3161, 369.82516pt x 218.35094pt>
+<fig/umn.png, id=2989, 369.82516pt x 218.35094pt>
 File: fig/umn.png Graphic file (type png)
  <use fig/umn.png>
-Package pdftex.def Info: fig/umn.png used on input line 902.
+Package pdftex.def Info: fig/umn.png used on input line 834.
 (pdftex.def)             Requested size: 68.45801pt x 40.4176pt.
 
-<fig/disl.png, id=3162, 413.545pt x 413.545pt>
+<fig/disl.png, id=2990, 413.545pt x 413.545pt>
 File: fig/disl.png Graphic file (type png)
  <use fig/disl.png>
-Package pdftex.def Info: fig/disl.png used on input line 902.
+Package pdftex.def Info: fig/disl.png used on input line 834.
 (pdftex.def)             Requested size: 68.45801pt x 68.45284pt.
 
-<fig/umces.png, id=3163, 501.875pt x 501.875pt>
+<fig/umces.png, id=2991, 501.875pt x 501.875pt>
 File: fig/umces.png Graphic file (type png)
  <use fig/umces.png>
-Package pdftex.def Info: fig/umces.png used on input line 902.
+Package pdftex.def Info: fig/umces.png used on input line 834.
 (pdftex.def)             Requested size: 68.45801pt x 68.45473pt.
 
-<fig/nceas.png, id=3164, 301.125pt x 280.04625pt>
+<fig/nceas.png, id=2992, 301.125pt x 280.04625pt>
 File: fig/nceas.png Graphic file (type png)
  <use fig/nceas.png>
-Package pdftex.def Info: fig/nceas.png used on input line 902.
+Package pdftex.def Info: fig/nceas.png used on input line 834.
 (pdftex.def)             Requested size: 68.45801pt x 63.66574pt.
 File: fig/back_tmp.pdf Graphic file (type pdf)
 
 <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 902.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 834.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [76
+ [68
 
  <M:/presentations/EPA_exit/fig/sfei.png> <M:/presentations/EPA_exit/fig/nerrs.
 jpg> <M:/presentations/EPA_exit/fig/umn.png> <M:/presentations/EPA_exit/fig/dis
@@ -2869,44 +2759,44 @@ l.png> <M:/presentations/EPA_exit/fig/umces.png> <M:/presentations/EPA_exit/fig
 /nceas.png>] (M:\presentations\EPA_exit\EPA_exit.bbl)
 File: fig/back_tmp.pdf Graphic file (type pdf)
 <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 911.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 843.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
- [77
+ [69
 
 ]
 File: fig/back_tmp.pdf Graphic file (type pdf)
  <use fig/back_tmp.pdf>
-Package pdftex.def Info: fig/back_tmp.pdf used on input line 911.
+Package pdftex.def Info: fig/back_tmp.pdf used on input line 843.
 (pdftex.def)             Requested size: 364.20192pt x 273.15337pt.
-Package atenddvi Info: Last page = 78.
- [78
+Package atenddvi Info: Last page = 70.
+ [70
 
 
 ]
 \tf@nav=\write6
 \tf@toc=\write7
 \tf@snm=\write8
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 913.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 913.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 845.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 845.
 
 (M:\presentations\EPA_exit\EPA_exit.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 913.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 913.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 845.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 845.
 Package rerunfilecheck Info: File `EPA_exit.out' has not changed.
-(rerunfilecheck)             Checksum: 5213EE72AB75E3DD9B561CBF85637424;371.
+(rerunfilecheck)             Checksum: 7F7A6355315D3884C22F099A3C7E6ABC;372.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 913.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 845.
  ) 
 Here is how much of TeX's memory you used:
- 34649 strings out of 493921
- 706070 string characters out of 3147282
- 740246 words of memory out of 3000000
- 37110 multiletter control sequences out of 15000+200000
- 17202 words of font info for 64 fonts, out of 3000000 for 9000
+ 34580 strings out of 493921
+ 705009 string characters out of 3147282
+ 739506 words of memory out of 3000000
+ 37065 multiletter control sequences out of 15000+200000
+ 16855 words of font info for 63 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  48i,16n,82p,10378b,783s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
@@ -2922,13 +2812,12 @@ C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program
  Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-tt8.pfb>
-Output written on EPA_exit.pdf (78 pages, 19317475 bytes).
+pe1/public/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmtt8.pfb>
+Output written on EPA_exit.pdf (70 pages, 16915816 bytes).
 PDF statistics:
- 3287 PDF objects out of 3580 (max. 8388607)
- 174 named destinations out of 1000 (max. 500000)
- 7577 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3110 PDF objects out of 3580 (max. 8388607)
+ 158 named destinations out of 1000 (max. 500000)
+ 7542 words of extra memory for PDF output out of 10000 (max. 10000000)
 
